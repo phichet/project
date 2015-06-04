@@ -75,7 +75,7 @@ class Food_controller extends CI_Controller{
        
         
     }
-     public function showdetil(){
+     public function showdetail(){
         $id =$this->uri->segment(3);
         
        
@@ -84,7 +84,7 @@ class Food_controller extends CI_Controller{
               'foodAll'=>$this->food->_showdetil($id)
                 );
                   
-          $this->load->view('showfood_detil',$data);
+          $this->load->view('showfood_detail',$data);
             
         }
     public function showfood(){

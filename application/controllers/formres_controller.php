@@ -104,16 +104,12 @@ class Formres_controller extends CI_Controller{
            
             $this->load->view('showform',$data);
         }
-        public function resdetil(){
+        public function resdetail(){
          
       $id =$this->uri->segment(3);
-     
-        
-      $data= array(
-              'resAll'=>$this->Rest->_resdetil($id)
-                 );
+     $data['resAll']=$this->Rest->_resdetil($id);
                   
-          $this->load->view('showres_detil',$data);
+          $this->load->view('showres_detail',$data);
             
         }
         public function get_update(){
