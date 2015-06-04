@@ -16,12 +16,11 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form role="form" action="formres_controller/showdetail" method="POST">
-                                        <div class="form-group col-lg-8">
-            <table class="table table-hover col-lg-6" border="1">
+                                        <div class="form-group col-lg-12">
+            <table class="table">
         <theder>
-               <th>ID</th>
-               <th>Name</th>
-                         
+               <!--<th>ID</th>-->
+               
         </theder>                                
                 <tbody>                                                                     
        <?php
@@ -30,38 +29,47 @@
                     
                          <tr>
                              <td>
-                                 <table class="col-lg-8" border="1">
+                                 <table class="col-lg-8">
                                      <tr>
-                                       <td> <?php echo "Res Name" ." : " .$row['res_name'] ;?> </BR>
-                                            <?php echo "Address" ." : " .$row['address'] ;?></br>
-                                            <?php echo "Pone" ." : " .$row['phone'] ;?>
+                                       <td class="col-lg-7"> 
+                                            <?php echo "<b>Res Name</b>" ." : " .$row['res_name'] ;?> </BR>
+                                            <?php echo "<b>Address</b>" ." : " .$row['address'] ;?></br>
+                                            <?php echo "<b>Pone</b>" ." : " .$row['phone'] ;?>
                                        
                                        </td>
-                                       <td> &nbsp; <?php echo "Price" ." : " .$row['price'] ;?> </br>
-                                            &nbsp; <?php  if(key_exists('parking',$row)==1){
-                                            echo "Parking" ." : "."Yes","<br/>";
+                                       <td class=""> 
+                                             <?php echo "<b>Price</b>" ." : " .$row['price'] ;?> </br>
+                                             <?php  if(key_exists('parking',$row)==1){
+                                            echo "<b>Parking</b>" ." : "."Yes","<br/>";
                                                     }
                                                     else {
-                                            echo "Parking" ." : " ."No","<br/>";
+                                            echo "<b>Parking</b>" ." : " ."No","<br/>";
                                                     } ;?>
                                         </td>  
                                      </tr>
                                  </table>
                              </td>
-                             <td><?php echo $row['lat'] ;?></br>
-                                 <?php echo $row['lng'] ;?>
-                             </td>
                              
+                         </tr> 
                         
                                 
                                 
                     
-                        <?php echo "      </tr>";
+                        <?php 
                     }
                 }
                 ?>
                 </tbody>   
             </table>
+                    <hr>
+                 <table>
+                    <tr>
+                        <td>
+                          <?php echo "<b>Lat</b>" ." : " .$row['lat'] ;?></br>
+                          <?php echo "<b>Lng</b>" ." : " .$row['lng'] ;?>                              
+                        </td>
+                    </tr>
+                 </table>                        
                                     </div>
                                  </form>
                              <br/>
@@ -79,19 +87,3 @@
 
     </div>
     <!-- /#wrapper -->
-<!--    <div>
-        echo "Res ID" ." : " .$row['res_id'];
-                    echo "Res Name" ." : " .$row['res_name'],"<br/>";
-                    echo "Lat" ." : " .$row['lat'],"<br/>";
-                    echo "Lng" ." : " .$row['lng'],"<br/>";  
-                    echo "Address" ." : " .$row['address'],"<br/>";
-                    echo "Pone" ." : " .$row['phone'],"<br/>";
-                    echo "Price" ." : " .$row['price'],"<br/>";
-                                      
-                            if(key_exists('parking',$row)==1){
-                                echo "Parking" ." : "."Yes","<br/>";
-                            }
-                            else {
-                                echo "Parking" ." : " ."No","<br/>";
-                                }
-    </div>-->

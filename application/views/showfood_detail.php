@@ -17,46 +17,65 @@
                                 <div class="col-lg-12">
                                     <form role="form" action="food_controller/showdetail" method="POST">
                                         <div class="form-group">
-       <!--  <div  class="row">
-            <div class="col-sm-12">
-                <div class="row">
-            <div class="col-md-10 col-md-offset-1"> -->
+       
         
             
-           
+            <table class="table">
+        <theder>
+               <!--<th>ID</th>-->
+               
+        </theder>                                
+                <tbody> 
             <?php
                 if(count($foodAll)){
-                    foreach ($foodAll as $food){
-                    echo "Res ID" ." : " .$food['res_id'],"<br/>";
-                    echo "Res Name" ." : " .$food['res_name'],"<br/>";
-                    echo "Lat" ." : " .$food['lat'],"<br/>";
-                    echo "Lng" ." : " .$food['lng'],"<br/>";  
-                    echo "Address" ." : " .$food['address'],"<br/>";
-                    echo "Pone" ." : " .$food['phone'],"<br/>";
-                    echo "Price" ." : " .$food['price'],"<br/>";
-                                      
-                            if(key_exists('parking',$food)==1){
-                                echo "Parking" ." : "."Yes","<br/>";
-                            }
-                            else {
-                                echo "Parking" ." : " ."No","<br/>";
-                                }
-
-                    echo "Food ID" ." : " .$food['food_id'],"<br/>";
-                    echo "Food Name" ." : " .$food['food_name'],"<br/>";
+                    foreach ($foodAll as $food){?>
+                        <tr>
+                             <td>
+                                 <table class="col-lg-8">
+                                     <tr>
+                                       <td class="col-lg-7"> 
+                                            <?php echo "<b>Res Name</b>" ." : " .$food['res_name'] ;?> </BR>
+                                            <?php echo "<b>Address</b>" ." : " .$food['address'] ;?></br>
+                                            <?php echo "<b>Pone</b>" ." : " .$food['phone'] ;?> </br>
+                                            <?php echo "<b>Price</b>" ." : " .$food['price'] ;?> </br>
+                                            <?php  if(key_exists('parking',$food)==1){
+                                            echo "<b>Parking</b>" ." : "."Yes","<br/>";
+                                                    }
+                                                    else {
+                                            echo "<b>Parking</b>" ." : " ."No","<br/>";
+                                                    } ;?>
+                                       </td>
+                                       <td class=""> 
+                                             <?php echo "<b>Food ID</b>" ." : " .$food['food_id'] ;?> </br>
+                                             <?php echo "<b>Food Name</b>" ." : " .$food['food_name'] ;?> </br>
+                                             <?php echo "<b>Category</b>" ." : " .$food['cate_id'] ;?> </br>
+                                             <?php echo "<b>DetilFood</b>" ." : " .$food['detail'] ;?> </br>
+                                             <?php echo "<b>Photo ID</b>" ." : " .$food['photo_id'] ;?> </br>
+                                             <?php echo "<b>Photo Name</b>" ." : " .$food['photo_name'] ;?> 
+                                        </td>  
+                                     </tr>
+                                 </table>
+                             </td>
+                             
+                         </tr> 
                     
-                    echo "Category" ." : " .$food['cate_id'],"<br/>";
-                    echo "DetilFood" ." : " .$food['detail'],"<br/>";
 
-                    echo "Photo ID" ." : " .$food['photo_id'],"<br/>";
-                    echo "Photo Name" ." : " .$food['photo_name'],"<br/>";
-
-                                
+               <?php                 
                 }
             }  
 
             ?>            
-        
+         </tbody>   
+            </table>
+               <hr>
+                 <table>
+                    <tr>
+                        <td>
+                          <?php echo "<b>Lat</b>" ." : " .$food['lat'] ;?></br>
+                          <?php echo "<b>Lng</b>" ." : " .$food['lng'] ;?>                              
+                        </td>
+                    </tr>
+                 </table>
         
     
     
