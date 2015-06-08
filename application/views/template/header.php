@@ -138,13 +138,16 @@
                         </li>
                         
                         <li>
-                            <a><i class="fa fa-edit fa-fw"></i> Add Reviews<span class="fa arrow"></span></a>
+                            <a><i class="fa fa-edit fa-fw"></i> Add & Reviews<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href='<?php echo base_url();?>index.php/formres_controller'> Add Restaurants</a>
+                                    <a href='<?php echo base_url();?>index.php/formres_controller'> Restaurants</a>
                                 </li>
                                 <li>
-                                    <a href='<?php echo base_url();?>index.php/food_controller'> Add Food</a>
+                                    <a href='<?php echo base_url();?>index.php/food_controller'> Food</a>
+                                </li>
+                                <li>
+                                    <a href='<?php echo base_url();?>index.php/category_controller'> Category</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -162,6 +165,9 @@
                                 <li>
                                     <a href='<?php echo base_url();?>index.php/food_controller/showfood'> Food</a>
                                 </li>
+                                <li>
+                                    <a href='<?php echo base_url();?>index.php/category_controller/showcate'> Category</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -169,6 +175,9 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-comment fa-fw"></i> Comment</a>
+                        </li>
+                        <li>
+                            <a href='<?php echo base_url();?>index.php/category_controller'><i class="fa fa-sliders  fa-fw"></i> Category</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>

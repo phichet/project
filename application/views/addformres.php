@@ -104,7 +104,7 @@ if ($this->session->flashdata('msg_error'))
                        </div>
                                 </div>
                         <div class="row" >
-                           <div class="col-lg-10">
+                           <div class="col-lg-12">
             <P align=""> Detail <textarea class="form-control" name="Detail" rows="10" cols="10"></textarea></p></br> 
             <input type="submit" name="submit"/><br/>
             <?php // echo form_close(); ?>

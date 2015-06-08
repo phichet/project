@@ -135,7 +135,7 @@ class Formres_controller extends CI_Controller{
                     );
                     $this->load->model('restaurantsmodel');
                    $this->restaurantsmodel->update($data);
-                    redirect('index.php/formres_controller');
+                    redirect('index.php/formres_controller/showAllres');
                     //echo json_encode($data);
         }
         

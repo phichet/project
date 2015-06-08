@@ -49,6 +49,7 @@
                                              <?php echo "<b>Food ID</b>" ." : " .$food['food_id'] ;?> </br>
                                              <?php echo "<b>Food Name</b>" ." : " .$food['food_name'] ;?> </br>
                                              <?php echo "<b>Category</b>" ." : " .$food['cate_id'] ;?> </br>
+                                             <?php echo "<b>Category</b>" ." : " .$food['cate_name'] ;?> </br>
                                              <?php echo "<b>DetilFood</b>" ." : " .$food['detail'] ;?> </br>
                                              <?php echo "<b>Photo ID</b>" ." : " .$food['photo_id'] ;?> </br>
                                              <?php echo "<b>Photo Name</b>" ." : " .$food['photo_name'] ;?> 
@@ -58,7 +59,7 @@
                              </td>
                              
                          </tr> 
-                    
+                    <?php //  echo json_encode($food) ;?>
 
                <?php                 
                 }

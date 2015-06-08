@@ -13,6 +13,7 @@ class Food extends CI_Model  {
      $query = $this->db->from('food')
                         ->join('restaurants', 'restaurants.res_id = food.res_id')
                         ->join('photo','photo.photo_id = food.photo_id')
+                        ->join('category','category.cate_id = food.cate_id')
                         ->get();
             
 
@@ -43,6 +44,18 @@ class Food extends CI_Model  {
         $query->free_result();
         return $data;
     }
+    
+    function _showcate(){
+     $data=array();
+     $query = $this->db->get('category');
+    if($query->num_rows()>0){
+            foreach($query->result_array()as$row){
+                $data[]=$row;
+            }
+        }
+        $query->free_result();
+        return $data;
+    }  
     function delID($data){
         //$data['res_id'] = $res_id;
         $this->db->where('food_id',$data)
@@ -57,6 +70,7 @@ class Food extends CI_Model  {
      $query = $this->db->from('food')
                         ->join('restaurants', 'restaurants.res_id = food.res_id')
                         ->join('photo','photo.photo_id = food.photo_id')
+                        ->join('category','category.cate_id = food.cate_id')
                         ->where('food_id',$id)
                         ->get();
             

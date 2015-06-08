@@ -39,12 +39,15 @@
                                        </td>
                                        <td class=""> 
                                              <?php echo "<b>Price</b>" ." : " .$row['price'] ;?> </br>
-                                             <?php  if(key_exists('parking',$row)==1){
+                                             <?php  if(!key_exists('parking',$row)==0){
                                             echo "<b>Parking</b>" ." : "."Yes","<br/>";
                                                     }
                                                     else {
                                             echo "<b>Parking</b>" ." : " ."No","<br/>";
-                                                    } ;?>
+                                                    } ;
+                                                    
+                                                    ?>
+                                             
                                         </td>  
                                      </tr>
                                  </table>

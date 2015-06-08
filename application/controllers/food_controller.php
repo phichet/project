@@ -12,11 +12,11 @@ class Food_controller extends CI_Controller{
     }
 
     
-    public function index(){
-       $data=array(
-            'resid'=>$this->food->_showres() 
-                );
-     $this->load->view('food_view',$data);
+    public function index(){ //เรียก id มาเพื่อเรียกใช้ในการเปรียบเทียบ select
+       $data= ['resid'=>$this->food->_showres(), 
+            'cateid'=>$this->food->_showcate()   
+            ];
+     $this->load->view('add_food',$data);
      
     }
     public function addfood(){
@@ -26,7 +26,8 @@ class Food_controller extends CI_Controller{
             'food_id' => '',
             'food_name' => $this->input->post('Food'),
             'detail' => $this->input->post('Detail'),
-            'res_id' => $this->input->post('Restaurant'),  
+            'res_id' => $this->input->post('Restaurant'),
+            'cate_id' => $this->input->post('Category'),
             'photo_id' => $id+1
 
 
@@ -68,13 +69,16 @@ class Food_controller extends CI_Controller{
     }
     
     public function showres(){
-        $this->food->_showres();
-        $data= array('resid'=>$this->food->_showres());
+//        $this->food->_showres();
+        $data= ['resid'=>$this->food->_showres(),
+            'cateid'=>$this->food->_showcate()   
+            ];
       
-        $this->load->view('food_view.php',$data);
+        $this->load->view('add_food',$data);
        
         
     }
+    
      public function showdetail(){
         $id =$this->uri->segment(3);
         
@@ -113,7 +117,7 @@ class Food_controller extends CI_Controller{
         'food_id' => $this->input->post('id'),
         'food_name' => $this->input->post('Food'),
         'detail' => $this->input->post('Detail'),
-        'res_id' => $this->input->post('Restaurant'),  //รับค่าจากตารางร้านอาหารเสมอ
+        'res_id' => $this->input->post('Restaurant'),  
         'user_id' => $this->input->post('user_id'),
         'cate_id' =>$this->input->post('cate_id'),
        

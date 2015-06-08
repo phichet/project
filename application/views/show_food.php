@@ -41,7 +41,7 @@
                     <td>".$food['res_id']."</td>
                     <td>".$food['photo_id']."</td>
                     <td>".$food['photo_name']."</td>
-                    <td>".$food['cate_id']."</td> 
+                    <td>".$food['cate_name']."</td> 
                     <td>
              <a class='btn btn-info btn-sm' role='button' href='".base_url()."index.php/food_controller/showdetail/".$food['food_id']."' >รายละเอียดเพิ่มเติม<br></a>
              <a class='btn btn-warning btn-sm' role='button' href='".base_url()."index.php/food_controller/getfood/".$food['food_id']."' >แก้ไข<br></a>
