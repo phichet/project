@@ -20,7 +20,7 @@ class Food_controller extends CI_Controller{
      
     }
     public function addfood(){
-        $id = $this->food->_countphoto();
+        
 
         $data=array(
             'food_id' => '',
@@ -28,12 +28,15 @@ class Food_controller extends CI_Controller{
             'detail' => $this->input->post('Detail'),
             'res_id' => $this->input->post('Restaurant'),
             'cate_id' => $this->input->post('Category'),
-            'photo_id' => $id+1
+//            'photo_id' => $id+1
 
 
         );
         
-       $this->food->_addfood($data);
+        $idfood = $this->food->_addfood($data);
+        
+
+       $id = $this->food->_countphoto();
                //$config['file_name']=$this->input->post($data);
 		$config['upload_path'] = 'photo';
 		$config['allowed_types'] = 'gif|jpg|png';
@@ -52,25 +55,28 @@ class Food_controller extends CI_Controller{
 			$data = $this->upload->data();
                         
                     $data2 =array(
-                        'upload'=> $data,
+//                        'upload'=> $data,
                         'photo_id'=> $id+1,
                         'photo_name' => $data['file_name'],
-                        'detail' => $this->input->post('detail_photo')
+                        'detail' => $this->input->post('detail_photo'),
+                        'food_id' => $idfood
                         ); 
-                         
+                        print_r($data2)   ;
                      $this->upload_model->_upload($data2);      
 		 
                       
 		}
-	
-   
-       redirect('index.php/food_controller/showfood');
+
+        
+      redirect('index.php/food_controller/showfood');
         
     }
     
     public function showres(){
 //        $this->food->_showres();
-        $data= ['resid'=>$this->food->_showres(),
+        $data= [
+            
+            'resid'=>$this->food->_showres(),
             'cateid'=>$this->food->_showcate()   
             ];
       
@@ -85,30 +91,33 @@ class Food_controller extends CI_Controller{
        
         
         $data= array(
-              'foodAll'=>$this->food->_showdetil($id)
+                'id'=>$id,
+                'foodAll'=>$this->food->_showdetil()
                 );
-                  
+//            echo json_encode($data);         
           $this->load->view('showfood_detail',$data);
-            
+         
         }
     public function showfood(){
-            $this->food->_showfood();
-           
-        
-         $data=array(
+//        $this->food->_showfood();
+
+        $data=array(
+                   
                    'foodAll'=>$this->food->_showfood()
                    
         );
-                        
+//echo json_encode($data);
           $this->load->view('show_food',$data);
-            
+ 
         }
         function getfood(){
         $this->food->_showfood();  
         $id=$this->uri->segment(3);        
             $data=array(
-                   'resid'=>$this->food->_showres(),
-                   'up'=>$this->food->getfood($id)
+                   'id'=>$id,
+                    'cateid'=>$this->food->_showcate(),
+//                   'resid'=>$this->food->_showres(),
+                   'up'=>$this->food->_getfood($id)
                     );    
           $this->load->view('upfood',$data);
         }

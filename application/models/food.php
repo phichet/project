@@ -1,4 +1,4 @@
-<?php
+<?php //
 class Food extends CI_Model  {
 
     function __construct() {
@@ -7,13 +7,15 @@ class Food extends CI_Model  {
     
     function _addfood($data){
         $this->db->insert('food',$data);
+        return $this->db->insert_id();
     }
     function _showfood(){
-         $data=array();
+       $data=array();
      $query = $this->db->from('food')
                         ->join('restaurants', 'restaurants.res_id = food.res_id')
-                        ->join('photo','photo.photo_id = food.photo_id')
+                        ->join('photo','photo.food_id = food.food_id')
                         ->join('category','category.cate_id = food.cate_id')
+                        ->group_by('food.food_id')
                         ->get();
             
 
@@ -24,9 +26,43 @@ class Food extends CI_Model  {
         }
         $query->free_result();
         return $data;
+        
     }
-    function getfood($id){
-       return $this->db->get_where('food', array('food_id' => $id))->row_array();
+    
+    function _showdetil(){
+      $data=array();
+
+     $query = $this->db->from('food', COUNT('food_id'))
+                        ->join('restaurants','restaurants.res_id = food.res_id')
+                        ->join('photo','photo.food_id = food.food_id')
+                        ->join('category','category.cate_id = food.cate_id')
+                        ->get();
+
+    if($query->num_rows()>0){
+            foreach($query->result_array()as$row){
+                $data[]=$row;
+            }
+        }
+        $query->free_result();
+        return $data;
+    }
+    function _getfood($id){
+//       return $this->db->get_where('food', array('food_id' => $id))->row_array();
+        $data=array();
+        $query = $this->db->from('food')
+                        ->join('restaurants','restaurants.res_id = food.res_id')
+                        ->join('photo','photo.food_id = food.food_id')
+                        ->join('category','category.cate_id = food.cate_id')
+                        ->where('food.food_id',$id)
+                        ->get();
+
+    if($query->num_rows()>0){
+            foreach($query->result_array()as$row){
+                $data[]=$row;
+            }
+        }
+        $query->free_result();
+        return $data;
     }
     
     function upfood($data) {
@@ -65,24 +101,8 @@ class Food extends CI_Model  {
        return $this->db->count_all_results('photo');
 
     }
-    function _showdetil($id){
-      $data=array();
-     $query = $this->db->from('food')
-                        ->join('restaurants', 'restaurants.res_id = food.res_id')
-                        ->join('photo','photo.photo_id = food.photo_id')
-                        ->join('category','category.cate_id = food.cate_id')
-                        ->where('food_id',$id)
-                        ->get();
-            
-
-    if($query->num_rows()>0){
-            foreach($query->result_array()as$row){
-                $data[]=$row;
-            }
-        }
-        $query->free_result();
-        return $data;
-    }
+    
+    
     
 }
 

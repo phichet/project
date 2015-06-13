@@ -22,7 +22,7 @@
         <theder>
                <th>ID</th>
                <th>Cate Name</th>
-                        
+               <th></th>         
         </theder>
         <tbody>
     <?php

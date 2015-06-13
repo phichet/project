@@ -25,8 +25,7 @@
                <th>Food Name</th>
                <th>Res Name</th>
                <th>Res ID</th>
-               <th>photo ID</th>
-               <th>photo Name</th>
+               
                <th>Cate_ID</th>
                <th></th>           
         </theder>
@@ -37,10 +36,10 @@
             echo "<tr>
                     <td>".$food['food_id']."</td>
                     <td><a href='".base_url()."index.php/food_controller/showdetail/".$food['food_id']."'>".$food['food_name']."</td>
-                    <td>".$food['res_name']."</td>
+                    <td><a href='".base_url()."index.php/formres_controller/resdetail/".$food['res_id']."'>".$food['res_name']."</td>
                     <td>".$food['res_id']."</td>
-                    <td>".$food['photo_id']."</td>
-                    <td>".$food['photo_name']."</td>
+                    
+                    
                     <td>".$food['cate_name']."</td> 
                     <td>
              <a class='btn btn-info btn-sm' role='button' href='".base_url()."index.php/food_controller/showdetail/".$food['food_id']."' >รายละเอียดเพิ่มเติม<br></a>
@@ -52,7 +51,7 @@
                 } 
     }
     ?>
-    <?php //echo json_encode($food); ?>
+    <?php // echo json_encode($food); ?>
     </tbody>
     </table>
 

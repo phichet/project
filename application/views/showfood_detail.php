@@ -28,13 +28,19 @@
                 <tbody> 
             <?php
                 if(count($foodAll)){
-                    foreach ($foodAll as $food){?>
+                    foreach ($foodAll as $food_list){
+                       if($food_list['food_id']==$id){
+                       $food=$food_list;  
+                       }
+                    }
+                    ?>
                         <tr>
                              <td>
                                  <table class="col-lg-8">
                                      <tr>
                                        <td class="col-lg-7"> 
-                                            <?php echo "<b>Res Name</b>" ." : " .$food['res_name'] ;?> </BR>
+                                          <?php if($food['food_id']==$id){
+                                             echo "<b>Res Name</b>" ." : " .$food['res_name'] ;?> </BR>
                                             <?php echo "<b>Address</b>" ." : " .$food['address'] ;?></br>
                                             <?php echo "<b>Pone</b>" ." : " .$food['phone'] ;?> </br>
                                             <?php echo "<b>Price</b>" ." : " .$food['price'] ;?> </br>
@@ -51,8 +57,17 @@
                                              <?php echo "<b>Category</b>" ." : " .$food['cate_id'] ;?> </br>
                                              <?php echo "<b>Category</b>" ." : " .$food['cate_name'] ;?> </br>
                                              <?php echo "<b>DetilFood</b>" ." : " .$food['detail'] ;?> </br>
-                                             <?php echo "<b>Photo ID</b>" ." : " .$food['photo_id'] ;?> </br>
-                                             <?php echo "<b>Photo Name</b>" ." : " .$food['photo_name'] ;?> 
+                                             
+                                            <?php 
+                                            echo "<b>Photo Name</b> : ";
+                                                foreach ($foodAll as $photo ) {
+                                                    if($photo['food_id']==$food['food_id']){
+                                                        echo $photo['photo_name'].","." ";
+                                                    }
+                                                }     
+                                            }
+                                            ?>
+                                          
                                         </td>  
                                      </tr>
                                  </table>
@@ -63,7 +78,7 @@
 
                <?php                 
                 }
-            }  
+//            }  
 
             ?>            
          </tbody>   

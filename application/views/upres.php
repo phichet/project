@@ -64,9 +64,8 @@
            
             <?php
                 
-            if(isset($detail)){
-                    echo $detail;
-                }
+            
+                
                 echo form_open('index.php/formres_controller/update'); //update ต้องใช้ echo form_open
            
             ?>
