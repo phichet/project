@@ -149,6 +149,9 @@
                                 <li>
                                     <a href='<?php echo base_url();?>index.php/category_controller'> Category</a>
                                 </li>
+                                <li>
+                                    <a href='<?php echo base_url();?>index.php/group_controller'> Group</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -167,6 +170,9 @@
                                 </li>
                                 <li>
                                     <a href='<?php echo base_url();?>index.php/category_controller/showcate'> Category</a>
+                                </li>
+                                <li>
+                                    <a href='<?php echo base_url();?>index.php/group_controller/showgroup'> Group</a>
                                 </li>
                             </ul>
                         </li>
