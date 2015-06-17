@@ -96,7 +96,7 @@
             <div class="col-sm-10" id="t">
             <h4>อัพโหลดรูปใหม่</h4>
             
-            <div class="row" id='photo'>
+            <div class="row " id="photo">
             
             <div  class="col-xs-10">
             </br>
@@ -104,26 +104,19 @@
     <tr>
 	<td>
             <img id="uploadPreview1" src="<?php echo base_url();?>photo/no_image.jpg" class="img-thumbnail"/></br></br>
-            <input id="uploadImage1" type="file" name="userfile" onchange="PreviewImage(1);"/>	
+            <input id="uploadImage1" type="file" name="userfile[]" onchange="PreviewImage(1);"/>	
         </td>
         
    
         <td>
         
-           <p> คำบรรยายรูป  </p><input align="" class="form-control" name="detail_photo" value=""  rows="3" cols="5"/>
+           <p> คำบรรยายรูป  </p><input align=""  class="form-control" name="detail_photo[]" value=""  rows="3" cols="5"/>
         </td>
           
             </tr>
             </table> </br> </div>   
         </br>
         </br>
-        
-            </div>
-        
-            </div>
-                </div>
-                    </div>
-                        
         <script type="text/javascript">
             function PreviewImage(no) {
                 var oFReader = new FileReader();
@@ -131,12 +124,20 @@
 
                 oFReader.onload = function (oFREvent) {
                     document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+                    
                 };
             }
 
 
                 
         </script>
+            </div>
+        
+            </div>
+                </div>
+                    </div>
+                        
+        
 
         
         <br/>
@@ -186,8 +187,32 @@
     <!-- /#wrapper -->
 
 
-
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--> 
   <script>
+                            $(document).ready(function(){
+                                var max_fields      = 5;
+                                var x = 1;
+                                
+                            $("#Clone").click(function(){
+                                 x++;
+                                 if(x < max_fields){ //max input box allowed
+                                     
+                                $("#photo").clone()
+                                 
+                                  .appendTo("#t")
+                                  .find("input:text").val("").end()
+                                 .find("img").attr('uploadPreview1',"").end()
+//                                $(".photo").empty();
+//                                callbacks.remove('#photo');
+                                 
+            
+            ;                               
+                                
+                            }
+                            });
+                            });
+                        </script>
+<!--<script>
                             $(document).ready(function(){
                                 var max_fields      = 5;
                                 var x = 1;
@@ -199,4 +224,4 @@
                             }
                             });
                             });
-                        </script>
+                        </script>-->
