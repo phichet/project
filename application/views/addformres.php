@@ -84,7 +84,7 @@ if ($this->session->flashdata('msg_error'))
         <div  float="none" id="map_canvas" align="center" style="width:500px;height:500px;" ></div></br>
                                 </div></div>
                         <div class="row" >
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
             <?php
 //            if(isset($detail)){
 //                    echo $detail;
