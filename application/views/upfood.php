@@ -18,9 +18,6 @@
         <div>
            
             <?php
-                
-            
-                
                 echo form_open('index.php/food_controller/updatefood');//update ต้องใช้ echo form_open
            
             ?>

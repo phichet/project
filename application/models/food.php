@@ -1,4 +1,4 @@
-<?php //
+<?php 
 class Food extends CI_Model  {
 
     function __construct() {
@@ -66,7 +66,8 @@ class Food extends CI_Model  {
     }
     
     function upfood($data) {
-        $this->db->where('food_id',$data['food_id'])->update('food',$data);
+        $this->db->where('food_id',$data['food_id'])
+                 ->update('food',$data);
     }
     
     function _showres(){
@@ -93,15 +94,23 @@ class Food extends CI_Model  {
         return $data;
     }  
     function delID($data){
-        //$data['res_id'] = $res_id;
+     
         $this->db->where('food_id',$data)
-                ->delete('food');
+                 ->delete('food');
     }
-    function _countphoto(){
-       return $this->db->count_all_results('photo');
 
-    }
-    
+     function _upload($data2) {  
+        $data = array(
+            'photo_id' =>$data2['photo_id'],
+            'photo_name' =>$data2['photo_name'],
+            'detail' => $data2['detail'],
+            'food_id' => $data2['food_id'],
+                );
+        $this->db->insert('photo',$data);
+
+        
+
+     }
     
     
 }

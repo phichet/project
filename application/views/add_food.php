@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!--<script src="<?php // echo base_url();?>dist/jquery.min.js"></script>-->
+<script src="<?php echo base_url();?>dist/js/jquery.min.js"></script>
 <meta charset=utf-8 />
 <title>Soyo Solution</title>
 <!--[if IE]>
@@ -102,23 +102,20 @@
             </br>
             <table >
     <tr>
-	<td> </br></br>
+	<td> 
             <?php
             $id=1;
            
-             
-              
-                   echo "<img id='uploadPreview".$id."' src='".base_url()."photo/no_image.jpg' class='img-thumbnail'/>";
+            echo "<img id='uploadPreview".$id."' src='".base_url()."photo/no_image.jpg' class='img-thumbnail'/></br></br>";
             echo "<input id='uploadImage".$id."' type='file' name='userfile[]' onchange='PreviewImage(".$id.");'/>";	
             
- 
-             
             ?>
         </td>
 
         <td>
-        
-           <p> คำบรรยายรูป  </p><input align=""  class="form-control" name="detail_photo[]" value=""  rows="3" cols="5"/>
+        <?php
+           echo "<p> คำบรรยายรูป  </p><input align='' id='detail".$id."' class='form-control' name='detail_photo[]' value=''  rows='3' cols='5'/>";
+        ?>
         </td>
           
             </tr>
@@ -201,28 +198,15 @@
                                  x++;
                                  if(x < max_fields){ //max input box allowed
 
-                                ($("#photo").clone()
-                                  .find("input:text").val("").end()
-                                  .find("img").attr('id','uploadPreview'+$id).end()
-                                  .find("img").attr('src',"../photo/no_image.jpg").end()
-                                  .find("input:file").attr('id','uploadImage'+$id).end()
-                                  .find("input:file").attr('onchange','PreviewImage('+$id+")").end()
-//                                  .find('#uploadImage'+$id)
-                                  .appendTo("#t")); 
+                            ($("#photo").clone()
+                                .find("input:text").val("").end()
+                                .find("input:text").attr('id','detail'+$id).end()
+                                .find("img").attr('id','uploadPreview'+$id).end()
+                                .find("img").attr('src',"../photo/no_image.jpg").end()
+                                .find("input:file").attr('id','uploadImage'+$id).end()
+                                .find("input:file").attr('onchange','PreviewImage('+$id+")").end()
+                                .appendTo("#t")); 
                                 }
                             });
                             });
                         </script>
-<!--<script>
-                            $(document).ready(function(){
-                                var max_fields      = 5;
-                                var x = 1;
-                            $("#Clone").click(function(){
-                                 x++;
-                                 if(x < max_fields){ //max input box allowed
-                                $("#photo").clone().appendTo("#t"); 
-                                
-                            }
-                            });
-                            });
-                        </script>-->
