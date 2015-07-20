@@ -8,7 +8,7 @@ class Formres_controller extends CI_Controller{
               
              $this->load->library('googlemaps');
              $this->load->model('manage');
-//             $this->load->view('template/backend');
+             $this->load->view('template/backend');
              $this->load->model('restaurantsmodel','Rest');
             }
     public function index(){
@@ -42,7 +42,11 @@ class Formres_controller extends CI_Controller{
 //                
 //                $mark=$this->googlemaps->add_marker($marker);
 //                $data['map'] = $this->googlemaps->create_map();
-          
+                
+                
+               
+                
+                
                 //echo json_encode($marker['position']);
 
                 
@@ -65,7 +69,8 @@ class Formres_controller extends CI_Controller{
                 }else{
                     echo "Chack Login";
                 }
-            }
+                //prin_r($data1);
+        }
     
     public function addres(){
         
@@ -80,28 +85,40 @@ class Formres_controller extends CI_Controller{
         'parking' => $this->input->post('parking'), 
         'detail' => $this->input->post('Detail')
          //'google' =>$this->googlemaps->create_map()
-        );      
+        );
+        
+        
       $this->load->model('restaurantsmodel','Rest');
        $this->Rest->_addres($data1);
+//        //$this->db->insert('user',$data);
+//        
+        //print_r($data1);
+        //$this->load->view('addres');
       redirect('index.php/formres_controller/showAllres');
         }
     public function showAllres(){
              $this->load->model('restaurantsmodel','Rest');
-                $data['resAll']=$this->Rest->showall();          
-//            $this->load->view('showform',$data);
-            $this->load->view('show_res',$data);
+            //$query = $this->db->get('restaurants');
+            //
+                $data['resAll']=$this->Rest->showall();
+           
+            $this->load->view('showform',$data);
         }
-        public function resdetail(){         
+        public function resdetail(){
+         
       $id =$this->uri->segment(3);
-     $data['resAll']=$this->Rest->_resdetil($id);                 
-          $this->load->view('res_detail',$data);           
+     $data['resAll']=$this->Rest->_resdetil($id);
+                  
+          $this->load->view('showres_detail',$data);
+            
         }
         public function get_update(){
         $this->load->model('restaurantsmodel','Update');
           $id=$this->uri->segment(3);
-            $data=array(
+         $data=array(
              'up'=>$this->Update->upres($id),
-             );       
+             );
+        
           $this->load->view('upres',$data);
         }
         function update(){
@@ -119,7 +136,10 @@ class Formres_controller extends CI_Controller{
                     $this->load->model('restaurantsmodel');
                    $this->restaurantsmodel->update($data);
                     redirect('index.php/formres_controller/showAllres');
+                    //echo json_encode($data);
         }
+        
+
         public function del(){
             $this->load->model('restaurantsmodel','Del');
             $data=$this->uri->segment(3);    
