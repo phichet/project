@@ -51,8 +51,8 @@
             
             
             
-            <input type="text" name="id"  value="<?=$ups['food_id'];?>" hidden=""/>
-            <P> <b>Food Name</b> <input class="form-control" type="text" name="Food"  value="<?=$ups['food_name'];?>" /> </p>
+            <input type="text" name="id"  value="<?php echo$ups['food_id'];?>" hidden=""/>
+            <P> <b>Food Name</b> <input class="form-control" type="text" name="Food"  value="<?php echo$ups['food_name'];?>" /> </p>
             <tr>
                 <td><label>Category </label></td>
                 <td>
@@ -77,7 +77,7 @@
             </div>
             </div></br>
             <div class="col-md-6 col-md-offset-1">
-                <P align=""> <b>Detail</b> <textarea class="form-control" name='Detail' rows="10" cols="10"><?=$ups['detail'];?></textarea> </p>
+                <P align=""> <b>Detail</b> <textarea class="form-control" name='Detail' rows="10" cols="10"><?php echo$ups['detail'];?></textarea> </p>
             
                        <?php if($ups['food_id']==$id){
         

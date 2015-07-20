@@ -24,11 +24,12 @@
                     <div class="panel-body">
                         <form role="form">
                             <fieldset>
-                                <div class="form-group">        <?php 
+                                <div class="form-group">        
+                                    <?php 
                                 echo "<a href='$login_url' class='btn btn-block btn-social btn-facebook'>
                                         <i class='fa fa-facebook'></i>Login with Facebook
-                                         </a>"; 
-                                ?><h5 align="center" class="text-danger" ><b>(แนะนำ)</b></h5>
+                                         </a>";?>
+                                <h5 align="center" class="text-danger" ><b>(แนะนำ)</b></h5>
                                 </div>
                                 <hr>
                                 <div class="form-group">
