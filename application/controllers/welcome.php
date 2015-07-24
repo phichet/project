@@ -4,10 +4,11 @@ class Welcome extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-
+        $this->load->library('facebook');
+        $this->load->model('register','re');
 	}
         function index(){
-         // $this->load->library('facebook'); 
+          $this->load->library('facebook'); 
         
        // $login_url = $this->facebook->get_login_url();
         
@@ -20,7 +21,7 @@ class Welcome extends CI_Controller {
         $this->load->model('register','re');
         $data=array('userdata'=>$this->facebook->get_user());
         $Udata=$data['userdata'];
-        $this->load->view('template/backend');
+//        $this->load->view('template/backend');
     //echo json_encode($test['id']);
         //print_r($data);
        
@@ -28,25 +29,23 @@ class Welcome extends CI_Controller {
        
     
         if($check!=null){
-            $this->load->view('views_user',$data);
-            
+//            $this->load->view('views_user',$data);
+           $this->load->view("_user",$data); 
         }else{
             
         $this->re->regis($data['userdata']);
-        $this->load->view('views_user',$data);
+//        $this->load->view('views_user',$data);
+        $this->load->view("_user",$data);
         }
         
       
     }
    
-    function addform(){
-           redirect('formres_controller');
-        //$this->load->library('facebook');
-       // $data=$this->uri->segment(3);
-         // $data1=array('userdata'=>$this->facebook->get_user($data));
-          //echo json_encode($data1);
-       //$this->load->view('addformres',$data1);
-      
+    function log(){
+        $this->load->library('facebook'); 
+             $login_url = $this->facebook->get_login_url();
+             $data= array("login_url"=>$this->facebook->get_login_url());
+             $this->load->view("_user",$data);
     }
     function show(){
        redirect('formres_controller'); 

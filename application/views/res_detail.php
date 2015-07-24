@@ -1,54 +1,41 @@
-<html> 
-<div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header"></h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form" action="formres_controller/showdetail" method="POST">
-                                        <div class="form-group col-lg-12">
-    </head>
-    <body  onload="initialize()">
-       <div class="row" align="center">
-                     <div class="col-lg-12">
-        <div  float="none" id="map_canvas" align="center" style="width:420px;height:420px;" ></div></br>
-                                </div></div>
-                        <div class="row" >
-                                <div class="col-lg-8">
+          <br>
+          <form role="form" action="" method="POST">
+          <?php
+                if(count($resAll)){
+                    foreach ($resAll as $row){?> 
+            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+            <span class="glyphicon-class"><h3>ร้าน : <?php echo$row['res_name'];?> </h3></span>
+           
+            <div onload="initialize()">
+       <div class="row ">
+           <div class="col-sm-8">
+               <img width="100%" height="300" src="<?php echo base_url();?>front_page/images/restaurants/no-img.png">
+           </div>
+           <div class="col-sm-4 ">
+              <div class="img-thumbnail" float="none" id="map_canvas" align="center" style="width:100%;height:200px;" ></div></br>
+           </div>      
+       </div> </br>      
             <table class="table">
         <theder>     
         </theder>                                
                 <tbody>                                                                     
-       <?php
-                if(count($resAll)){
-                    foreach ($resAll as $row){?>
+       
                          <tr>
                              <td>
-                                 <table class="">
+                                 <table class="col-xs-10">
                                      <tr>
-                                       <td class="col-lg-7"> 
-                                            <?php echo "<b>Res Name</b>" ." : " .$row['res_name'] ;?> </BR>
+                                       <td class="col-xs-3"> 
+                                            <?php // echo "<b>Res Name</b>" ." : " .$row['res_name'] ;?> </BR>
                                             <?php echo "<b>Address</b>" ." : " .$row['address'] ;?></br>
                                             <?php echo "<b>Pone</b>" ." : " .$row['phone'] ;?>
                                        </td>
-                                       <td class="col-lg-5"> 
+                                       <td class="col-xs-3"> 
                                              <?php echo "<b>Price</b>" ." : " .$row['price'];?></br>
                                              <?php  if(!key_exists('parking',$row)==0){
-                                            echo "<b>Parking</b>" ." : "."Yes","<br/>";
+                                            echo "<b>Parking</b>" ." : "."Yes";
                                                     }
                                                     else {
-                                            echo "<b>Parking</b>" ." : " ."No","<br/>";
+                                            echo "<b>Parking</b>" ." : " ."No";
                                                     } ;                                                    
         ?>                                            
                                         </td>  
@@ -62,7 +49,18 @@
                 ?>
                 </tbody>   
             </table>
-                    <hr>
+                
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-xs-9">
+                    <?php echo "<a class='glyphicon glyphicon-pencil btn btn-warning' role='button' href='".base_url()."index.php/formres_controller/get_update/".$row['res_id']."'>แก้ไข<br></a> ";?>   
+                    </div>
+                    <div class="col-xs-3offset-3">
+                        <a class="btn btn-success" href='<?php echo base_url();?>index.php/food_controller/get_addfood/<?php echo $idres ?>'>เพิ่มอาหาร</a>
+                    </div>
+                </div>
+            </div></br>
+
                  <table>
                     <tr>
                         <td>
@@ -92,21 +90,13 @@ var myLatlng=new google.maps.LatLng(Lat,Lng);
     }
     google.maps.event.addDomListener(window, 'load', initialize);
         </script>
-                                    </div>
-                                 </form>
-                             <br/>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
+            
+
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-</body>         
-</html> 
+            
+          </form>
+<!--          <script type="text/javascript">
+          $(document).ready(function(){
+            alert('ggg');  
+          });
+                </script>-->
