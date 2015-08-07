@@ -6,20 +6,20 @@
     <!--/.row-offcanvas row-offcanvas-right-->
 </div>
 <!--/.container-->
-
-<section id="bottom">
+</br>
+<div id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
         </div>
-    </section>
+    </div>
 <!--/#bottom-->
 
        <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                <div class="">
+                    &copy; 2015 This is Uttaradit. <a href="<?php echo base_url(); ?>index.php/usersingin" title="แนะนำร้านอาหารในจังหวัดอุตรดิตถ์"> ที่นี่...อุตรดิตถ์</a> แนะนำร้านอาหารในจังหวัดอุตรดิตถ์ 
                 </div>
-                <div class="col-sm-6">
+                <div class="">
                     <ul class="pull-right">
                      
                     </ul>

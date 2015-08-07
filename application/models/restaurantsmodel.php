@@ -36,10 +36,21 @@ function _construct(){
             
     }
     function update($data) {
-        $this->db->where('res_id',$data['res_id'])->update('restaurants',$data);
-                
-        
+        $this->db->where('res_id',$data['res_id'])->update('restaurants',$data);  
     }
+    
+    function _showres(){
+     $data=array();
+     $query = $this->db->get('restaurants');
+    if($query->num_rows()>0){
+            foreach($query->result_array()as$row){
+                $data[]=$row;
+            }
+        }
+        $query->free_result();
+        return $data;
+    }
+    
     function delID($data){
         //$data['res_id'] = $res_id;
         $this->db->where('res_id',$data)

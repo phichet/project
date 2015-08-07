@@ -8,8 +8,8 @@ class Formres_controller extends CI_Controller {
 
         $this->load->library('googlemaps');
         $this->load->model('manage');
-
-
+        $this->load->model('food');
+        $this->load->model('recommend', 'recom');
         $this->load->model('restaurantsmodel', 'Rest');
     }
 
@@ -27,30 +27,6 @@ class Formres_controller extends CI_Controller {
 
         if ($check = !null) {
 
-
-
-//                $config = array();
-//                $config['center'] = 'thailand, uttaradit';
-//                $config['map_height'] = '350';
-//                $config['map_width'] = '450';
-//                $config['zoom'] = '12';
-//                
-//               
-//                $marker = array();
-//                $marker['position'] = '17.628087, 100.097616';
-//                $marker['draggable'] = true;
-//                
-//                $marker['ondragend'] = 'alert(\'You just dropped me at: \' + event.latLng.lat() + \', \' + event.latLng.lng());';
-//                
-//                
-//                $mark=$this->googlemaps->add_marker($marker);
-//                $data['map'] = $this->googlemaps->create_map();
-            //echo json_encode($marker['position']);
-            // Initialize our map. Here you can also pass in additional parameters for customising the map (see below)
-//                $this->googlemaps->initialize($config);
-            // Create the map. This will return the Javascript to be included in our pages <head></head> section and the HTML code to be
-            // placed where we want the map to appear.
-            // Load our view, passing the m$this->load->view('addformres', $data);ap data that has just been created
 
             $data = array(
                 'email' => $data['userdata'],
@@ -103,8 +79,12 @@ class Formres_controller extends CI_Controller {
         $this->load->view('template/header');
 
         $id = $this->uri->segment(3);
-        $data['resAll'] = $this->Rest->_resdetil($id);
-        $data['idres'] = $id;
+        $data = [
+            'resAll' => $this->Rest->_resdetil($id),
+            'resid' => $this->food->_foodbyid($id),
+            'idres' => $id,
+        ];
+//        print_r($data);
         $this->load->view('res_detail', $data);
         $this->load->view('template/footer');
     }
@@ -112,10 +92,10 @@ class Formres_controller extends CI_Controller {
     public function get_update() {
         $this->load->view('template/header');
 
-        $this->load->model('restaurantsmodel', 'Update');
+        $this->load->model('restaurantsmodel', 'Rest');
         $id = $this->uri->segment(3);
         $data = array(
-            'up' => $this->Update->upres($id),
+            'up' => $this->Rest->upres($id),
         );
         $this->load->view('upres', $data);
         $this->load->view('template/footer');
@@ -159,6 +139,74 @@ class Formres_controller extends CI_Controller {
         $this->load->view('template/footer');
     }
 
-}
+    public function recommend() {
+        $this->load->view('template/header');
+        $data = array(
+            'resid' => $this->Rest->_showres()
+        );
+//                print_r($data);
+        $this->load->view('add_recommend', $data);
 
+        $this->load->view('template/footer');
+    }
+
+    public function addrecom() {   // เช็ค ร้านที่มีอยู่ใน DB หลังจากกด Button submit
+        $this->load->view('template/header');
+        $ids = $this->recom->getrecom();
+        $Dsele = $this->input->post('searchable');
+        $Dseles = $Dsele;
+        $cpho = count($Dsele);
+        for ($i = 0; $i < $cpho; $i++) {
+            $data = array(
+                'recom_id' => '',
+                'res_id' => $Dsele[$i],
+            );
+            if ($data['res_id'] != $ids) {
+                ?>
+                <script type="text/javascript">
+                    alert("ร้านที่เลือกมีอยูแล้ว");
+                </script>
+                <?php
+                $data = array(
+                    'recom' => $this->recom->_showrecom()
+                );
+                $this->load->view('show_recom', $data);
+                $this->load->view('template/footer');
+            } else {
+                $this->recom->_addrecom($data);
+                redirect('index.php/usersingin');
+                $this->load->view('template/footer');
+            }
+        }
+    }
+
+    public function showrecom() {
+        $this->load->view('template/header');
+        $data = array(
+            'recom' => $this->recom->_showrecom()
+        );
+        $this->load->view('index', $data);
+//        print_r($data);
+        $this->load->view('template/footer');
+    }
+
+    public function show_recom() {
+        $this->load->view('template/header');
+        $data = array(
+            'recom' => $this->recom->_showrecom()
+        );
+        $this->load->view('show_recom', $data);
+//        print_r($data);
+        $this->load->view('template/footer');
+    }
+
+    public function delrecom() {
+        $this->load->view('template/header');
+        $data = $this->uri->segment(3);
+        $this->recom->delrecom($data);
+        $this->load->view('template/footer');
+        redirect('index.php/formres_controller/show_recom');
+    }
+
+}
 ?>       
