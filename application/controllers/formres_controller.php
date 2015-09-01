@@ -11,6 +11,8 @@ class Formres_controller extends CI_Controller {
         $this->load->model('food');
         $this->load->model('recommend', 'recom');
         $this->load->model('restaurantsmodel', 'Rest');
+        $this->load->library('upload');
+        $this->load->library('image_lib');
     }
 
     public function index() {
@@ -18,16 +20,10 @@ class Formres_controller extends CI_Controller {
         $this->load->model('restaurantsmodel', 'Rest');
         $this->load->library(array('session', 'facebook'));
         $data = array('userdata' => $this->facebook->get_user());
-        // $udata=$data['userdata'] ;  
-        //  print_r($data['userdata']);
         $this->load->model('user');
-
-
         $check = $this->user->_checkuser($data['userdata']);
 
         if ($check = !null) {
-
-
             $data = array(
                 'email' => $data['userdata'],
 //                       'resAll'=>$this->Rest->showall(),
@@ -45,32 +41,80 @@ class Formres_controller extends CI_Controller {
 
     public function addres() {
         $this->load->view('template/header');
-
+        $lat = $this->input->post('lat');
+        $lng = $this->input->post('lng');
+        if ($lat == null and $lng == null) {
+            $Dlat = 17.628087;
+            $Dlng = 100.097616;
+        } else {
+            $Dlat = $this->input->post('lat');
+            $Dlng = $this->input->post('lng');
+        }
         $data1 = array(
             'res_id' => '',
             'res_name' => $this->input->post('Restaurant'),
-            'lat' => $this->input->post('lat'),
-            'lng' => $this->input->post('lng'),
+            'lat' => $Dlat,
+            'lng' => $Dlng,
             'address' => $this->input->post('address'),
             'phone' => $this->input->post('phone'),
             'price' => $this->input->post('price'),
             'parking' => $this->input->post('parking'),
             'detail' => $this->input->post('Detail')
-                //'google' =>$this->googlemaps->create_map()
         );
-        $this->load->model('restaurantsmodel', 'Rest');
-        $this->Rest->_addres($data1);
+        $idres = $this->Rest->_addres($data1);
+//        print_r($_FILES);
+        //----------------//
+        $detail = $this->input->post('detail_photores');
+        $files = $_FILES;
+        $cpho = count($_FILES['userfile']['name']);
+//        print_r($files);
+        for ($i = 0; $i < $cpho; $i++) {
 
+            $config = array(
+                'file_name' => rand(100, 1000) . "_" . date("Dmy_His"),
+                'upload_path' => 'img_res',
+                'allowed_types' => 'gif|jpg|png',
+                'max_size' => '2000'
+            );
+            $this->upload->initialize($config);
+
+            $_FILES['userfile']['name'] = $files['userfile']['name'][$i];
+            $_FILES['userfile']['type'] = $files['userfile']['type'][$i];
+            $_FILES['userfile']['tmp_name'] = $files['userfile']['tmp_name'][$i];
+            $_FILES['userfile']['error'] = $files['userfile']['error'][$i];
+            $_FILES['userfile']['size'] = $files['userfile']['size'][$i];
+            
+            if (!$this->upload->do_upload()) {
+            } else {
+                $data = $this->upload->data();
+                $config = array(
+                    'image_library' => 'gd2',
+                    'source_image' => 'img_res/' . $data['file_name'],
+                    'width' => '600',
+                    'height' => '300'
+                );
+                $this->image_lib->clear();
+                $this->image_lib->initialize($config);
+                $this->image_lib->resize();
+
+                $data2 = array(
+                    'imgres_id' => '',
+                    'imgres_name' => $data['file_name'],
+                    'imgres_detail' => $detail[$i],
+                    'res_id' => $idres
+                );
+//                print_r($idres);
+                $this->Rest->_upload($data2);
+            }
+        }
         $this->load->view('template/footer');
         redirect('index.php/formres_controller/showAllres');
     }
 
     public function showAllres() {
         $this->load->view('template/header');
-
         $this->load->model('restaurantsmodel', 'Rest');
         $data['resAll'] = $this->Rest->showall();
-//            $this->load->view('showform',$data);
         $this->load->view('show_res', $data);
         $this->load->view('template/footer');
     }
@@ -80,8 +124,10 @@ class Formres_controller extends CI_Controller {
 
         $id = $this->uri->segment(3);
         $data = [
+            'id' => $id,
             'resAll' => $this->Rest->_resdetil($id),
             'resid' => $this->food->_foodbyid($id),
+            'imgres' => $this->Rest->_showimgres($id),
             'idres' => $id,
         ];
 //        print_r($data);
@@ -103,7 +149,6 @@ class Formres_controller extends CI_Controller {
 
     function update() {
         $this->load->view('template/header');
-
         $data = array(
             'res_id' => $this->input->post('id'),
             'res_name' => $this->input->post('Restaurant'),
@@ -144,7 +189,6 @@ class Formres_controller extends CI_Controller {
         $data = array(
             'resid' => $this->Rest->_showres()
         );
-//                print_r($data);
         $this->load->view('add_recommend', $data);
 
         $this->load->view('template/footer');
@@ -167,6 +211,7 @@ class Formres_controller extends CI_Controller {
                     alert("ร้านที่เลือกมีอยูแล้ว");
                 </script>
                 <?php
+
                 $data = array(
                     'recom' => $this->recom->_showrecom()
                 );
@@ -186,7 +231,6 @@ class Formres_controller extends CI_Controller {
             'recom' => $this->recom->_showrecom()
         );
         $this->load->view('index', $data);
-//        print_r($data);
         $this->load->view('template/footer');
     }
 
@@ -196,7 +240,6 @@ class Formres_controller extends CI_Controller {
             'recom' => $this->recom->_showrecom()
         );
         $this->load->view('show_recom', $data);
-//        print_r($data);
         $this->load->view('template/footer');
     }
 

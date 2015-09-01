@@ -12,6 +12,9 @@
         <link href="<?php echo base_url(); ?>front_page/css/animate.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>front_page/css/main.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>front_page/css/bootstrap-social.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/blueimp-gallery.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/bootstrap-image-gallery.css">
+        <!--<link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/demo.css">-->
 
         <!--    [if lt IE 9]>
             <script src="js/html5shiv.js"></script>
@@ -35,7 +38,7 @@
                         <div class="col-sm-4 col-sm-offset-7 col-xs-3 col-xs-offset-7 ">
                             <div class="social">
                                 <!--                                <ul class="social-share">
-                                                                    <li><a href="<?php // echo base_url('index.php/usersingin/home'); ?>"><i class="fa fa-facebook"></i></a></li>
+                                                                    <li><a href="<?php // echo base_url('index.php/usersingin/home');  ?>"><i class="fa fa-facebook"></i></a></li>
                                                                     <li><a href="<?php echo base_url(); ?>index.php/usersingin/home"><i class="btn-sm btn-info" style="width: 100%">login</i></a></li> 
                                                                     <li></li>
                                                                     <li></li>
@@ -70,9 +73,11 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand"  href="<?php echo base_url(); ?>index.php/usersingin">
-                            <!--<img class="img-responsive" src="<?php // echo base_url(); ?>front_page/images/logo.png" alt="logo" >-->
+                            <!--<img class="img-responsive" src="<?php // echo base_url();  ?>front_page/images/logo.png" alt="logo" >-->
                             <div class="logo-xs visible-xs"></div>
-                            <div class="logo-lg hidden-xs"></div>
+                            <div class="logo-sm visible-sm"></div>
+                            <div class="logo-md visible-md"></div>
+                            <div class="logo-lg visible-lg"></div>
                         </a>
                     </div>
 
@@ -84,7 +89,7 @@
                                 <ul class="dropdown-menu ">
                                     <li><a href="<?php echo base_url(); ?>index.php/formres_controller/showAllres">ร้านทั้งหมด</a></li>
                                     <li><a href="<?php echo base_url(); ?>index.php/formres_controller">เพิ่มร้านอาหาร</a></li>
-
+                                    <li><a href="<?php echo base_url(); ?>index.php/category_controller/showcate">ประเภทอาหาร</a></li>
                                 </ul>
                             </li>
                             <!--                            <li><a href="services.html">Services</a></li>

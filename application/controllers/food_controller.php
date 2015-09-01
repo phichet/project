@@ -48,13 +48,11 @@ class Food_controller extends CI_Controller {
             'res_id' => $this->input->post('Restaurant'),
             'cate_id' => $this->input->post('Category'),
         );
-//        print_r($data);
         $idfood = $this->food->_addfood($data);
         //----------------//
         $detail = $this->input->post('detail_photo');
         $files = $_FILES;
         $cpho = count($_FILES['userfile']['name']);
-//        print_r($detail);
         for ($i = 0; $i < $cpho; $i++) {
            
             $config = array(

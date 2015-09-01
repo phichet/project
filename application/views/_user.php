@@ -33,7 +33,7 @@
                         <div class = "col-xs-12">
                             <hr class = "hr-margin-button">
                         </div>
-                    </div>
+                    </div></br></br></br></br>
 
 
 

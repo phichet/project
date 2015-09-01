@@ -12,7 +12,7 @@
                 <body onload="initialize()"><!--*********-->
                     <div class="row" align="center">
                         <div class="col-xs-12">
-                            <div class="img-thumbnail" float="none" id="map_canvas" align="center" style="width:420px;height:420px;" >
+                            <div class="img-thumbnail" float="none" id="map_canvas" align="center" style="width:400px;height:300px;" >
                             </div></br>
                         </div>
                     </div>

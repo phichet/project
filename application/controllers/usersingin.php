@@ -9,12 +9,14 @@ class Usersingin extends CI_Controller {
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('recommend', 'recom');
+        $this->load->model('restaurantsmodel', 'Rest');
     }
 
     public function index() {
         $this->load->view('template/header');
         $data = array(
-            'recom' => $this->recom->_showrecom()
+            'recom' => $this->recom->_showrecom(),
+            'resAll' => $this->Rest->showlimit()
         );
         $this->load->view('index',$data);
 //        print_r($data);

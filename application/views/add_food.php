@@ -11,8 +11,6 @@
                         <div class="col-xs-4">
 
                             <?php
-//            echo form_open_multipart('index.php/food_controller/addfood');
-
                             if (count($resid)) {
                                 foreach ($resid as $resids) {
                                     
@@ -92,7 +90,8 @@
                             <div>
                                 </br></br>
                             </div>
-                        </div></div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-xs-12">

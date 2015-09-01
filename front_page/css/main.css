@@ -111,13 +111,48 @@ a:active,a:hover{
   margin-top: 0;
   margin-bottom: 20px;
 }
-
-.media>.pull-left{
-  margin-right: 20px;
+.media {
+  margin-top: 15px;
 }
-
-.media>.pull-right{
-  margin-left: 20px;
+.media:first-child {
+  margin-top: 0;
+}
+.media,.media-body {
+  overflow: hidden;
+  zoom: 1;
+}
+.media-body {
+  width: 10000px;
+}
+.media-object {
+  display: block;
+}
+.media-object.img-thumbnail {
+  max-width: none;
+}
+.media-right,.media > .pull-right {
+  padding-left: 10px;
+}
+.media-left,.media > .pull-left {
+  padding-right: 10px;
+}
+.media-left,.media-right,.media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+.media-middle {
+  vertical-align: middle;
+}
+.media-bottom {
+  vertical-align: bottom;
+}
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.media-list {
+  padding-left: 0;
+  list-style: none;
 }
 
 body > section {
@@ -2541,6 +2576,14 @@ article > p{
  font-size:1em;
  line-height:1em;
  height:1em;
+ /*white-space: nowrap;*/
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+article > a{
+ font-size:1em;
+ line-height:1em;
+ height:1em;
  white-space: nowrap;
  overflow: hidden;
  text-overflow: ellipsis;
@@ -2753,10 +2796,17 @@ article > p{
   width: 212px;
   margin-top: -8px;
 }
+.logo-sm {
+  background-image:  url('../../front_page/images/logo3.png');
+  height: 67px;
+  width: 80px;
+  margin-top: -8px;
+}
 .logo-md {
-  background-image:  url('../../front_page/images/logo.png');
-  height: 80px;
-  width: 265px;
+  background-image:  url('../../front_page/images/logo3.png');
+  height: 67px;
+  width: 80px;
+  margin-top: -8px;
 }
 .logo-lg {
   background-image:  url('../../front_page/images/logo.png');

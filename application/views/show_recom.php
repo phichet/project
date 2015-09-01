@@ -13,20 +13,19 @@
                                 <div class="col-sm-offset-3">
 
                                     <table class="table table-hover">
-                                        <theder>
-                                            <th>รหัสแนะนำ</th>
-                                            <th>รหัสร้าน</th>
+                                        <thead>
+<!--                                            <th>รหัสแนะนำ</th>
+                                            <th>รหัสร้าน</th>-->
                                             <th>ชื่อร้าน</th>
                                             <th></th>
 
-                                        </theder>
+                                        </thead>
                                         <tbody>
                                             <?php
                                             if (count($recom)) {
                                                 foreach ($recom as $row) {
                                                     echo "<tr>
-                          <td>" . $row['recom_id'] . "</td>
-                          <td>" . $row['res_id'] . "</td>
+                          
                           <td><a href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" . $row['res_name'] . "</td>        
              <td>
              
@@ -45,9 +44,6 @@
                             </div>
                             </br>
                         </div>  
-
-
-                        <br/>
                         <!-- /.row (nested) -->
                     </div>
                     <!-- /.panel-body -->

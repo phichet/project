@@ -2,50 +2,50 @@
 <div class="container" style="background-color:rgba(220,220,220,0.2)">
     <div class="row row-offcanvas row-offcanvas-right">
         <br>
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-lg-9">
             <!-- Slide Show -->
-            <!--	            <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
-                                               Indicators 
-                                              <ol class="carousel-indicators">
-                                                <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
-                                                <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
-                                                <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
-                                              </ol>-->
+<!--            <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
+                Indicators 
+                <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
+                    <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
+                    <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
+                </ol>-->
 
-            <!--Wrapper for slides -->
-            <!--			<div role="listbox" class="carousel-inner">
-                                                    <div class="item active">
-                                                        <a target="_blank" href="http://www.thisisnakhonsawan.com/festival/p2.php">
-                                                           <img src="images/slider/bg2.jpg">
-                                                        </a>
-                                                            <div class="carousel-caption">
-                                                            </div>
-                                                    </div>
-                                                    <div class="item">
-                                                        <a target="_blank" href="http://nakhonsawangames44.com/webnwgames/">
-                                                            <img src="images/slider/bg1.jpg">
-                                                        </a>
-                                                            <div class="carousel-caption">
-                                                            </div>
-                                                    </div>
-                                                    <div class="item">
-                                                            <img src="images/slider/bg3.jpg">
-                                                            <div class="carousel-caption">
-                                                            </div>
-                                                    </div>
-                                    </div>  -->
-            <!--Wrapper for slides -->
+                <!--Wrapper for slides -->
+<!--                <div role="listbox" class="carousel-inner">
+                    <div class="item active">
+                        <a target="_blank" href="http://www.thisisnakhonsawan.com/festival/p2.php">
+                            <img src="images/slider/bg2.jpg">
+                        </a>
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a target="_blank" href="http://nakhonsawangames44.com/webnwgames/">
+                            <img src="images/slider/bg1.jpg">
+                        </a>
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/slider/bg3.jpg">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                </div>  -->
+                <!--Wrapper for slides -->
 
-            <!-- Controls -->
-            <!--				  <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
-                                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
-                                                <span class="sr-only">Previous</span>
-                                              </a>
-                                              <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
-                                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
-                                                <span class="sr-only">Next</span>
-                                              </a>
-                                            </div>-->
+                <!-- Controls -->
+<!--                <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
+                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>-->
             <!-- Slide Show -->
 
             <!-- News Topic -->
@@ -72,7 +72,7 @@
                                 <div class="picture">
                                     <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" ?>
                                     <i  title="<?php echo $row['res_name'] ?>" style=" background-image: url(<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg)">
-                                        <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name'] ?>" alt="<?php echo $row['res_name'] ?>" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.png">
+                                        <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name'] ?>" alt="<?php echo $row['res_name'] ?>" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg">
                                     </i>
                                     <?php echo "</a>"; ?>
                                 </div>
@@ -117,27 +117,36 @@
                         <h2><b class="font-super glyphicon glyphicon-cutlery "> ร้านอาหาร</b></h2>
                     </div>
                     <div class="col-xs-4 col-xs-offset-9">
-                        <a href="#">เพิ่มเติม</a>
+                        <a href="<?php echo base_url(); ?>index.php/formres_controller/showAllres">เพิ่มเติม</a>
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <hr >
                 </div>
             </div></br>
-
-            <div class="row">
-                <div class="col-xs-6 media-margin">
-                    <div class="media">
-                        <div class="media-left">
-                            <img width="100" height="100" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" class="img-rounded media-object">
+            <!--/row-->
+            <div class="row" role="group">
+                <?php
+                if (count($resAll)) {
+                    foreach ($resAll as $row) {
+                        ?>
+                        <div class="media col-xs-12" id="resshow">
+                            <div class="media-left media-top" >
+                                <a href="#">
+                                    <img class="media-object img-rounded" width="100" height="100" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <!--<a class="font-review media-heading" href="fooddetail.php?id=60"><b>Middle aligned media</b></a>-->
+                                <article><b><?php echo "<a class'font-review media-heading' href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" . $row['res_name'] ?></b></a></article>
+                                <article><p class="font-gary"><?php echo $row['address'] ?></p></article>
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <a class="font-review" href="fooddetail.php?id=60"><b>แพเจ้นงค์</b></a><br>
-                            ริมเขื่อนแม่น้ำเจ้าพระยา หน้าศาลแขวง ถ.โกสีย์ใต้ ต.นครสวรรค์ตก เมืองนครสวรรค์, นครสวรรค์ 6                </div>
-                    </div> 
-                </div> <!-- / col-sm-6 -->
-                <br>
-            </div><!--/row-->
+                        <?php
+                    }
+                }
+                ?> 
+            </div>
 
             <!-- Food Topic -->
             <br>
@@ -156,7 +165,7 @@
 
         </div><!--/.col-xs-12.col-sm-9-->
 
-        <div id="sidebar" class="col-xs-12 col-sm-3 sidebar-offcanvas">
+        <!--<div id="sidebar" class=" sidebar-offcanvas">-->
         <!--  <center class="font-super">
         <form id="cse-search-box" action="http://www.google.co.th">
         <div>
@@ -167,27 +176,32 @@
         </div>
         <input type="hidden" name="siteurl" value="www.thisisnakhonsawan.com/"><input type="hidden" name="ref" value="www.thisisnakhonsawan.com/review/p6.php"><input type="hidden" name="ss"></form>
         </center>-->
-            <script src="http://www.google.co.th/coop/cse/brand?form=cse-search-box&amp;lang=th" type="text/javascript"></script>
-            <!-- Recommend Tab -->
-            <br>
-            <div id="sidebar" class="col-xs-12  sidebar-offcanvas">
-                <div class="col-xs-12 row header-topic padding-topic font-super">
-                    <span class="" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-bookmark"><b> รีวิว</b></span>
+        <script src="http://www.google.co.th/coop/cse/brand?form=cse-search-box&amp;lang=th" type="text/javascript"></script>
+        <!-- Recommend Tab -->
+        <br>
+        <div id="sidebar" class="col-lg-3 sidebar-offcanvas">
+            <div class="col-xs-12 row header-topic padding-topic font-super">
+                <span class="" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-bookmark"><b> รีวิว</b></span>
+            </div>
+
+            <div class="media col-xs-12">
+                <div class="media-left">
+                    <img width="50" height="50" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" class="img-rounded media-object">
                 </div>
-
-                <div class="media col-xs-12">
-                    <div class="media-left">
-                        <img width="50" height="50" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" class="img-rounded media-object">
-                    </div>
-                    <div class="media-body">
-                        <a class="font-review" href="review/p7.php"><b>[รีวิว] Ant-Man คนหรือมด !!</b></a><br>
-                        หลังจากที่หนัง Ant Man ได้เข้าโรงเป็นที่เรียบร้อยแล้ว ทางที่นี่นครสวรรค์ก็ได้ไปดูมาก็อยากจะรีวิวหนังเรื่องนี้เหลือเกิน เลยทำโพสนี้ออกมาครับ    </div>
+                <div class="media-body">
+                    <article><a class="font-review" href="review/p7.php"><b>[รีวิว] Ant-Man คนหรือมด !!</b></a></article>
+                    <article><p>หลังจากที่หนัง Ant Man ได้เข้าโรงเป็นที่เรียบร้อยแล้ว ทางที่นี่นครสวรรค์ก็ได้ไปดูมาก็อยากจะรีวิวหนังเรื่องนี้เหลือเกิน เลยทำโพสนี้ออกมาครับ </p></article>  
+                </div>
+                </br>
+                <div class="col-lg-12 col-lg-offset-0 col-sm-5 col-sm-offset-4">
                     <p><a href="review.php" class="btn btn-warning btn-xs btn-block font-super" type="button">เพิ่มเติม</a></p>
-
                 </div>
             </div>
-            <br>
+        </div>
+        <!--</div>-->
+
+
 
 
 
