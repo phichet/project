@@ -12,9 +12,8 @@
         <link href="<?php echo base_url(); ?>front_page/css/animate.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>front_page/css/main.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>front_page/css/bootstrap-social.css" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/blueimp-gallery.min.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/bootstrap-image-gallery.css">
-        <!--<link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/demo.css">-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/lightgallery.css" rel="stylesheet">
+        
 
         <!--    [if lt IE 9]>
             <script src="js/html5shiv.js"></script>

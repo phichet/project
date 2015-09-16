@@ -40,6 +40,14 @@
 <script src="<?php echo base_url(); ?>front_page/js/jquery.isotope.min.js"></script>
 <script src="<?php echo base_url(); ?>front_page/js/main.js"></script>
 <script src="<?php echo base_url(); ?>front_page/js/wow.min.js"></script>
-<script src="<?php echo base_url(); ?>front_page/js/jquery.blueimp-gallery.min.js"></script>
-<script src="<?php echo base_url(); ?>front_page/js/bootstrap-image-gallery.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/picturefill.min.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/lightgallery.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/lg-fullscreen.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/lg-thumbnail.js"></script>
+<!--<script src="<?php echo base_url(); ?>front_page/js/lg-video.js"></script>-->
+<!--<script src="<?php echo base_url(); ?>front_page/js/lg-autoplay.js"></script>-->
+<script src="<?php echo base_url(); ?>front_page/js/lg-zoom.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/lg-hash.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/lg-pager.js"></script>
+<script src="<?php echo base_url(); ?>front_page/lib/jquery.mousewheel.min.js"></script>
 

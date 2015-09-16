@@ -17,77 +17,37 @@
                     <div onload="initialize()">
                         <div class="row ">
                             <div class="col-sm-8">
-                                
-                                <div class="">
-                                    <div class="container">
-                                        <form class="form-inline">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-success btn-xs">
-                                                    <p id="borderless-checkbox" type="hidden"> Borderless</p>
-                                                </label>
-                                            </div>
-                                        </form>
-                                        <br>
-                                        <!-- The container for the list of example images -->
-                                        <div id="links">
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                                <div class="home">
+                                    <div class="demo-gallery">
+                                        <ul id="lightgallery" class="list-unstyled col-lg-12">
                                             <?php
-                                foreach ($imgres as $img) {
-//                                    echo $img;                         
-                                ?>
-                                            <a href="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" title="<?php echo $img['imgres_detail'] ?>" data-gallery>
-                                                <img src="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" style="width: 60px; height: 60px">
-                                            </a>
-                                              <?php
+                                            foreach ($imgres as $img) {
+                                                if ($img == ""){
+                                                   echo  "<img class='img-rounded img-responsive' src='".base_url()."front_page/images/restaurants/no-img.jpg' style='width: 100%; height: 300px;'> "
+                                                ; }
+                                                else {
+                                                ?>
+                                                <li class="col-lg-2" data-responsive="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" data-src="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" data-sub-html="">                                           
+                                                    <a href="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" title="<?php echo $img['imgres_detail'] ?>">
+                                                        <img class="img-responsive" src="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" style="width: 120px; height: 120px;">
+                                                    </a>
+                                                </li>
+                                                <?php
+                                                }
                                             }
-//                                        }
-                                ?>
-                                        </div>
-                                        <br>
+                                            ?>
+                                        </ul>
+
                                     </div>
-                                    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-                                    <div id="blueimp-gallery" class="blueimp-gallery">
-                                         <!--The container for the modal slides--> 
-                                        <div class="slides"></div>
-                                         <!--Controls for the borderless lightbox--> 
-                                        <h3 class="title"></h3>
-                                        <a class="prev">‹</a>
-                                        <a class="next">›</a>
-                                        <a class="close">×</a>
-                                        <a class="play-pause"></a>
-                                        <ol class="indicator">
-                                            <li style="background-image: url('<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>');" title="<?php echo $img['imgres_detail'] ?>" data-index="0"></li>
-                                        </ol>
-                                         <!--The modal dialog, which will be used to wrap the lightbox content--> 
-                                        <div class="modal fade">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title"></h4>
-                                                    </div>
-                                                    <div class="modal-body next"></div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default pull-left prev">
-                                                            <i class="glyphicon glyphicon-chevron-left"></i>
-                                                            Previous
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary next">
-                                                            Next
-                                                            <i class="glyphicon glyphicon-chevron-right"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#lightgallery').lightGallery();
+                        });
+                                    </script>
+
                                 </div>
-                                <?php
-//                                            }
-//                                        }
-                                ?>
-
                             </div>
-
                             <?php
                             foreach ($resAll as $row) {
                                 ?> 
@@ -173,7 +133,7 @@
 
                     <div class="col-xs-12 font-super">
                         <hr class="hr-margin-button">   
-                        <!--<div class="col-xs-9">-->
+                        <!--<div class="col-xs-9">
                         <h3><b class="font-super">อาหาร</b></h3>
                         <!--<hr class="hr-margin-button">-->
                         <!--                        </div> -->
