@@ -22,23 +22,18 @@
                                     <div class="demo-gallery">
                                         <ul id="lightgallery" class="list-unstyled col-lg-12">
                                             <?php
-                                            foreach ($imgres as $img) {
-                                                if ($img == ""){
-                                                   echo  "<img class='img-rounded img-responsive' src='".base_url()."front_page/images/restaurants/no-img.jpg' style='width: 100%; height: 300px;'> "
-                                                ; }
-                                                else {
-                                                ?>
-                                                <li class="col-lg-2" data-responsive="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" data-src="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" data-sub-html="">                                           
-                                                    <a href="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" title="<?php echo $img['imgres_detail'] ?>">
-                                                        <img class="img-responsive" src="<?php echo base_url() ?>img_res/<?php echo $img['imgres_name'] ?>" style="width: 120px; height: 120px;">
-                                                    </a>
-                                                </li>
-                                                <?php
-                                                }
-                                            }
-                                            ?>
+                                            if ($imgres == null) {
+                                                echo "<img class='img-rounded img-responsive' src='" . base_url() . "front_page/images/restaurants/no-img.jpg' style='width: 100%; height: 300px;'> ";
+                                            }  else {
+                                            foreach ($imgres as $img) {                                           
+                                            echo "<li class='col-lg-2' data-responsive=' ".base_url(). "img_res/".$img['imgres_name']."' data-src=' ". base_url()."img_res/".$img['imgres_name']."' data-sub-html=''>                                           
+                                                        <a href=' ".base_url()." img_res/".$img['imgres_name']."' title='".$img['imgres_detail']."'>
+                                                            <img class='img-responsive' src='".base_url()."img_res/".$img['imgres_name']."' style='width: 120px; height: 120px;'>
+                                                        </a>
+                                                    </li>";
+                                             }
+                                            }?>                                           
                                         </ul>
-
                                     </div>
                                     <script type="text/javascript">
                         $(document).ready(function () {
@@ -48,6 +43,7 @@
 
                                 </div>
                             </div>
+                            
                             <?php
                             foreach ($resAll as $row) {
                                 ?> 
@@ -65,7 +61,7 @@
                                             <table class="col-xs-10">
                                                 <tr>
                                                     <td class="col-xs-3"> 
-                                                        <?php // echo "<b>Res Name</b>" ." : " .$row['res_name'] ;  ?> </BR>
+                                                        <?php // echo "<b>Res Name</b>" ." : " .$row['res_name'] ;   ?> </BR>
                                                         <?php echo "<b>ที่อยู่</b>" . " : " . $row['address']; ?></br>
                                                         <?php echo "<b>โทร</b>" . " : " . $row['phone']; ?>
                                                     </td>

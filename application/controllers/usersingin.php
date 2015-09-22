@@ -16,11 +16,12 @@ class Usersingin extends CI_Controller {
         $this->load->view('template/header');
         $data = array(
             'recom' => $this->recom->_showrecom(),
+            'imgrecom' => $this->recom->_showreimg(),
             'resAll' => $this->Rest->showlimit()
         );
+//        echo json_encode($data);
         $this->load->view('index',$data);
-//        print_r($data);
-//        $this->load->view('index');
+
         $this->load->view('template/footer');
     }
 

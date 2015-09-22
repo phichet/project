@@ -4,48 +4,48 @@
         <br>
         <div class="col-lg-9">
             <!-- Slide Show -->
-<!--            <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
-                Indicators 
-                <ol class="carousel-indicators">
-                    <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
-                    <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
-                    <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
-                </ol>-->
+            <!--            <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
+                            Indicators 
+                            <ol class="carousel-indicators">
+                                <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
+                                <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
+                                <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
+                            </ol>-->
 
-                <!--Wrapper for slides -->
-<!--                <div role="listbox" class="carousel-inner">
-                    <div class="item active">
-                        <a target="_blank" href="http://www.thisisnakhonsawan.com/festival/p2.php">
-                            <img src="images/slider/bg2.jpg">
-                        </a>
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a target="_blank" href="http://nakhonsawangames44.com/webnwgames/">
-                            <img src="images/slider/bg1.jpg">
-                        </a>
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="images/slider/bg3.jpg">
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-                </div>  -->
-                <!--Wrapper for slides -->
+            <!--Wrapper for slides -->
+            <!--                <div role="listbox" class="carousel-inner">
+                                <div class="item active">
+                                    <a target="_blank" href="http://www.thisisnakhonsawan.com/festival/p2.php">
+                                        <img src="images/slider/bg2.jpg">
+                                    </a>
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <a target="_blank" href="http://nakhonsawangames44.com/webnwgames/">
+                                        <img src="images/slider/bg1.jpg">
+                                    </a>
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="images/slider/bg3.jpg">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                            </div>  -->
+            <!--Wrapper for slides -->
 
-                <!-- Controls -->
-<!--                <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
-                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
-                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>-->
+            <!-- Controls -->
+            <!--                <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
+                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
+                                <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>-->
             <!-- Slide Show -->
 
             <!-- News Topic -->
@@ -64,30 +64,39 @@
             </div></br>
             <form role="form" action="food_controller/showrecom" method="POST">
                 <?php
-                if (count($recom)) {
-                    foreach ($recom as $row) {
-                        ?>
-                        <div class="col-sm-6">
-                            <div class="listing p">
-                                <div class="picture">
-                                    <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" ?>
-                                    <i  title="<?php echo $row['res_name'] ?>" style=" background-image: url(<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg)">
-                                        <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name'] ?>" alt="<?php echo $row['res_name'] ?>" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg">
-                                    </i>
-                                    <?php echo "</a>"; ?>
-                                </div>
-                                <div class="title">
-                                    <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" . $row['res_name'] . " </a>"; ?>
-                                </div>
-                            </div>
-            <!--                        <p> ชื่อร้าน : <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" . $row['res_name'] . " </a>"; ?></p>
-                            <p class="font-gary">ที่อยู่ : <?php echo $row['address'] ?></p>
-                            <p class="font-gary">โทร : <?php echo $row['phone'] ?></p>-->
-                            </br> 
-                        </div>
 
-                        <?php
-                    }
+                foreach ($recom as $row) {
+                    ?> 
+
+                    <div class="col-sm-6">                            
+                        <div class="listing p">                         
+                            <div class="picture">                                  
+                                <a href="<?php echo base_url(); ?>index.php/formres_controller/resdetail/<?php echo $row['res_id']; ?>"> 
+                                    <?php
+                                        if ($row['imgres_name'] != null) {
+                                            ?>
+                                            <i title="<?php echo $row['res_name']; ?>" style="background-image: url(<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>)">
+                                                <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name']; ?>" alt="<?php echo $row['res_name']; ?>" src="<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>">
+                                            </i>
+                                        <?php
+
+                                        
+                                        }
+//                                    }
+//                                    }
+                                    ?>  
+                                </a>
+                            </div>
+                            <div class="title">
+    <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/" . $row['res_id'] . "'>" . $row['res_name'] . " </a>"; ?>
+                            </div>
+                        </div>
+                        </br> 
+                    </div>
+
+                    <?php
+//                                print_r($row);
+//                }
                 }
                 ?>
             </form>

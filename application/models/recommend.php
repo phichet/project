@@ -13,7 +13,8 @@ class Recommend extends CI_Model {
     }
     function getrecom() {
         $data = array();
-        $query = $this->db->get('res_recommend');
+        $query = $this->db->from('res_recommend')
+                            ->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result_array()as $row) {
                 $data[] = $row;
@@ -27,7 +28,23 @@ class Recommend extends CI_Model {
         $data = array();
         $query = $this->db->from('res_recommend')
                 ->join('restaurants', 'restaurants.res_id = res_recommend.res_id')
+                ->join('img_res', 'img_res.res_id = restaurants.res_id')
                 ->group_by('res_recommend.res_id')
+                ->get();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array()as $row) {
+                $data[] = $row;
+            }
+        }
+        $query->free_result();
+        return $data;
+    }
+    
+    function _showreimg() {
+        $data = array();
+        $query = $this->db->from('restaurants')->limit(1)
+                ->join('img_res', 'img_res.res_id = restaurants.res_id')
+                ->order_by('imgres_id')
                 ->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result_array()as $row) {

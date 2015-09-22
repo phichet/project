@@ -83,8 +83,9 @@ class Formres_controller extends CI_Controller {
             $_FILES['userfile']['tmp_name'] = $files['userfile']['tmp_name'][$i];
             $_FILES['userfile']['error'] = $files['userfile']['error'][$i];
             $_FILES['userfile']['size'] = $files['userfile']['size'][$i];
-            
+
             if (!$this->upload->do_upload()) {
+                
             } else {
                 $data = $this->upload->data();
                 $config = array(
@@ -197,30 +198,39 @@ class Formres_controller extends CI_Controller {
     public function addrecom() {   // เช็ค ร้านที่มีอยู่ใน DB หลังจากกด Button submit
         $this->load->view('template/header');
         $ids = $this->recom->getrecom();
+//        echo $ids;
+        $cids = count($ids);
         $Dsele = $this->input->post('searchable');
         $Dseles = $Dsele;
+//        echo json_encode($Dseles);
         $cpho = count($Dsele);
         for ($i = 0; $i < $cpho; $i++) {
             $data = array(
                 'recom_id' => '',
                 'res_id' => $Dsele[$i],
             );
-            if ($data['res_id'] != $ids) {
-                ?>
-                <script type="text/javascript">
-                    alert("ร้านที่เลือกมีอยูแล้ว");
-                </script>
-                <?php
-
-                $data = array(
-                    'recom' => $this->recom->_showrecom()
-                );
-                $this->load->view('show_recom', $data);
-                $this->load->view('template/footer');
-            } else {
-                $this->recom->_addrecom($data);
-                redirect('index.php/usersingin');
-                $this->load->view('template/footer');
+            for ($p = 1; $p < $cids; $p++) {
+                foreach ($ids as $id) {
+                    if ($Dsele != $id['res_id']) {
+                        ?>                          
+<!--                        <script type="text/javascript">
+                            alert("ร้านที่เลือกมีอยูแล้ว");
+                        </script>-->
+                        <?php
+                       
+//                        echo 'ร้านที่เลือกมีอยูแล้ว';
+//                        redirect('index.php/formres_controller/show_recom');
+//                           echo json_encode($Dseles),'$Dseles';
+//                           echo '$id[res_id]->>',$id['res_id'];
+//                        $data = array('recom' => $this->recom->_showrecom());
+                        $this->load->view('show_recom');
+                        $this->load->view('template/footer');
+                    } else {
+                        $this->recom->_addrecom($data);
+                        redirect('index.php/usersingin');
+                        $this->load->view('template/footer');
+                    }
+                }
             }
         }
     }
