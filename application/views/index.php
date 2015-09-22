@@ -78,12 +78,8 @@
                                             <i title="<?php echo $row['res_name']; ?>" style="background-image: url(<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>)">
                                                 <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name']; ?>" alt="<?php echo $row['res_name']; ?>" src="<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>">
                                             </i>
-                                        <?php
-
-                                        
+                                        <?php                                   
                                         }
-//                                    }
-//                                    }
                                     ?>  
                                 </a>
                             </div>
@@ -138,12 +134,16 @@
                 <?php
                 if (count($resAll)) {
                     foreach ($resAll as $row) {
+//                        print_r($row);
                         ?>
                         <div class="media col-xs-12" id="resshow">
                             <div class="media-left media-top" >
                                 <a href="#">
-                                    <img class="media-object img-rounded" width="100" height="100" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" alt="...">
+                                    <img class="media-object img-rounded" width="100" height="100" src="<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>" alt="...">
                                 </a>
+<!--                                <a href="#">
+                                    <img class="media-object img-rounded" width="100" height="100" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" alt="...">
+                                </a>-->
                             </div>
                             <div class="media-body">
                                 <!--<a class="font-review media-heading" href="fooddetail.php?id=60"><b>Middle aligned media</b></a>-->

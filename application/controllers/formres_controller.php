@@ -219,11 +219,11 @@ class Formres_controller extends CI_Controller {
                         <?php
                        
 //                        echo 'ร้านที่เลือกมีอยูแล้ว';
-//                        redirect('index.php/formres_controller/show_recom');
+                        redirect('index.php/formres_controller/show_recom');
 //                           echo json_encode($Dseles),'$Dseles';
 //                           echo '$id[res_id]->>',$id['res_id'];
 //                        $data = array('recom' => $this->recom->_showrecom());
-                        $this->load->view('show_recom');
+//                        $this->load->view('show_recom');
                         $this->load->view('template/footer');
                     } else {
                         $this->recom->_addrecom($data);

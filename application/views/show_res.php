@@ -10,12 +10,17 @@
                 <?php
                 if (count($resAll)) {
                     foreach ($resAll as $row) {
+//                        print_r($row);
                         ?>
                         <div class="col-xs-6 col-sm-4">
+                            <?php
+//                            if ($row[''])
+                            ?>
                             <img width="100%" height="200" class="img-rounded img-responsive" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg"></br >
                             <article><p> <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/".$row['res_id']."'>".$row['res_name'] ?></a></p></article>
                             <article><p class="font-gary">ที่อยู่ : <?php echo $row['address'] ?></p></article>
                             <article><p class="font-gary">โทร : <?php echo $row['phone'] ?></p></article>
+                            <a class="btn btn-danger btn-sm" role="button" href="<?php echo base_url(); ?>index.php/formres_controller/del/<?php echo $row['res_id']?>" >ลบ<br></a></br></br>
                         </div>
                         <?php
                     }
