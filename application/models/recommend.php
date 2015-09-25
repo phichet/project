@@ -11,19 +11,22 @@ class Recommend extends CI_Model {
         
         return $this->db->insert_id();
     }
-    function getrecom() {
-        $data = array();
-        $query = $this->db->from('res_recommend')
-                            ->get();
+    function searchrescombyid($id){
+        $this->db->where('res_id',$id);
+        return $this->db->get('res_recommend')->result_array();
+        
+    }
+            function getrecom() { 
+      $data = array();
+        $query = $this->db->get('res_recommend');
         if ($query->num_rows() > 0) {
             foreach ($query->result_array()as $row) {
-                $data[] = $row;
+                $data[] = $row['res_id'];
             }
-        }
+        } 
         $query->free_result();
-        return $data;
+         return $data;
     }
-    
     function _showrecom() {
         $data = array();
         $query = $this->db->from('res_recommend')

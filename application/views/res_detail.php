@@ -26,9 +26,9 @@
                                                 echo "<img class='img-rounded img-responsive' src='" . base_url() . "front_page/images/restaurants/no-img.jpg' style='width: 100%; height: 300px;'> ";
                                             }  else {
                                             foreach ($imgres as $img) {                                           
-                                            echo "<li class='col-lg-2' data-responsive=' ".base_url(). "img_res/".$img['imgres_name']."' data-src=' ". base_url()."img_res/".$img['imgres_name']."' data-sub-html=''>                                           
-                                                        <a href=' ".base_url()." img_res/".$img['imgres_name']."' title='".$img['imgres_detail']."'>
-                                                            <img class='img-responsive' src='".base_url()."img_res/".$img['imgres_name']."' style='width: 120px; height: 120px;'>
+                                            echo "<li class='col-lg-2' data-responsive=' ".base_url(). "img_res/".$img['imgres_name']."' data-src=' ". base_url()."img_res/".$img['imgres_name']."' data-sub-html='".$img['imgres_detail']."'>                                           
+                                                        <a href=' ".base_url()." img_res/".$img['imgres_name']."' title=''>
+                                                            <img class='img-responsive' src='".base_url()."img_res/".$img['imgres_name']."' style='width: 150px; height: 120px;'>
                                                         </a>
                                                     </li>";
                                              }
