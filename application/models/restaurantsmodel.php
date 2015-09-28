@@ -13,7 +13,10 @@ class Restaurantsmodel extends CI_Model {
 
     function showAll() {
         $data = array();
-        $query = $this->db->get('restaurants');
+        $query = $this->db->from('restaurants')
+                ->join('img_res', 'img_res.res_id = restaurants.res_id', 'left')
+                ->group_by('restaurants.res_id')
+                ->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result_array()as $row) {
                 $data[] = $row;
@@ -25,7 +28,7 @@ class Restaurantsmodel extends CI_Model {
 
     function showlimit() {
         $data = array();
-        $query = $this->db->from('restaurants', 4)
+        $query = $this->db->from('restaurants')->limit(4)
                 ->join('img_res', 'img_res.res_id = restaurants.res_id')
                 ->group_by('restaurants.res_id')
                 ->get();

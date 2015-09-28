@@ -12,11 +12,16 @@
                     foreach ($resAll as $row) {
 //                        print_r($row);
                         ?>
-                        <div class="col-xs-6 col-sm-4">
+                        <div class="col-xs-6 col-sm-4 col-lg-4">
                             <?php
-//                            if ($row[''])
+                            if ($row['imgres_name'] != null) {
                             ?>
-                            <img width="100%" height="200" class="img-rounded img-responsive" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg"></br >
+                            <img width="400" height="300" class="img-rounded img-responsive" src="<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>"></br>
+                            <?php                                   
+                                        }  else {?>
+                            <img width="400" height="300" class="img-rounded img-responsive" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg"></br>
+                            <?php }
+                                    ?>
                             <article><p> <?php echo "<a href='" . base_url() . "index.php/formres_controller/resdetail/".$row['res_id']."'>".$row['res_name'] ?></a></p></article>
                             <article><p class="font-gary">ที่อยู่ : <?php echo $row['address'] ?></p></article>
                             <article><p class="font-gary">โทร : <?php echo $row['phone'] ?></p></article>
@@ -26,6 +31,7 @@
                     }
                 }
                 ?>
+           
 
                 <!--                        <div class="col-sm-12">
                               <center>

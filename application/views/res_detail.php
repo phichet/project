@@ -24,15 +24,16 @@
                                             <?php
                                             if ($imgres == null) {
                                                 echo "<img class='img-rounded img-responsive' src='" . base_url() . "front_page/images/restaurants/no-img.jpg' style='width: 100%; height: 300px;'> ";
-                                            }  else {
-                                            foreach ($imgres as $img) {                                           
-                                            echo "<li class='col-lg-2' data-responsive=' ".base_url(). "img_res/".$img['imgres_name']."' data-src=' ". base_url()."img_res/".$img['imgres_name']."' data-sub-html='".$img['imgres_detail']."'>                                           
-                                                        <a href=' ".base_url()." img_res/".$img['imgres_name']."' title=''>
-                                                            <img class='img-responsive' src='".base_url()."img_res/".$img['imgres_name']."' style='width: 150px; height: 120px;'>
+                                            } else {
+                                                foreach ($imgres as $img) {
+                                                    echo "<li class='col-lg-2' data-responsive=' " . base_url() . "img_res/" . $img['imgres_name'] . "' data-src=' " . base_url() . "img_res/" . $img['imgres_name'] . "' data-sub-html='" . $img['imgres_detail'] . "'>                                           
+                                                        <a href=' " . base_url() . " img_res/" . $img['imgres_name'] . "' title=''>
+                                                            <img class='img-responsive' src='" . base_url() . "img_res/" . $img['imgres_name'] . "' style='width: 150px; height: 120px;'>
                                                         </a>
                                                     </li>";
-                                             }
-                                            }?>                                           
+                                                }
+                                            }
+                                            ?>                                           
                                         </ul>
                                     </div>
                                     <script type="text/javascript">
@@ -43,7 +44,7 @@
 
                                 </div>
                             </div>
-                            
+
                             <?php
                             foreach ($resAll as $row) {
                                 ?> 
@@ -158,4 +159,17 @@
                     }
                 };
                 ?>
+                <div id="fb-root"></div>
+                <script>(function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id))
+                            return;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.4&appId=1513679228861356";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="col-lg-12">
+                    <div class="fb-comments" data-href="" data-numposts="3"></div>
+                </div>
                 <br>

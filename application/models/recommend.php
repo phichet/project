@@ -30,8 +30,8 @@ class Recommend extends CI_Model {
     function _showrecom() {
         $data = array();
         $query = $this->db->from('res_recommend')
-                ->join('restaurants', 'restaurants.res_id = res_recommend.res_id')
-                ->join('img_res', 'img_res.res_id = restaurants.res_id')
+                ->join('restaurants', 'restaurants.res_id = res_recommend.res_id', 'left')
+                ->join('img_res', 'img_res.res_id = restaurants.res_id', 'left')
                 ->group_by('res_recommend.res_id')
                 ->get();
         if ($query->num_rows() > 0) {

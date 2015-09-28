@@ -7,13 +7,13 @@
 </div>
 <!--/.container-->
 </br>
-<div id="bottom">
+<!--<div id="bottom">
     <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
     </div>
-</div>
+</div>-->
 <!--/#bottom-->
 
-<footer id="footer" class="midnight-blue">
+<!--<footer id="footer" class="midnight-blue">
     <div class="container">
         <div class="row">
             <div class="">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>-->
 <!--/#footer-->
 </body>
 </html>

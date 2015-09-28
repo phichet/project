@@ -91,6 +91,7 @@ class Formres_controller extends CI_Controller {
                 $config = array(
                     'image_library' => 'gd2',
                     'source_image' => 'img_res/' . $data['file_name'],
+                    'maintain_ratio' => FALSE,
                     'width' => '600',
                     'height' => '300'
                 );
@@ -197,113 +198,19 @@ class Formres_controller extends CI_Controller {
 
     public function addrecom() {   // เช็ค ร้านที่มีอยู่ใน DB หลังจากกด Button submit
         $this->load->view('template/header');
-//        $ids = $this->recom->getrecom();
-//        echo $ids;
-//        $cids = count($ids);
-        $v;
         $Dsele = $this->input->post('searchable');
-        $cpho = count($Dsele);   
-        $w = $this->recom->getrecom();
-        
-         $cW = count($w);   
-//        print_r($w);
-        echo "</br>";
-        echo "</br>";
-         for ($i = 0; $i < sizeof($Dsele); $i++) {
-         $v=$Dsele[$i]; 
-         $result = $this->recom->searchrescombyid($v);
-         print_r($result);
-         if(sizeof($result)== 0){
-             $data = array(
-                 'recom_id' =>'',
-                 'res_id' =>$v);
-             $this->recom->_addrecom($data);
-         }
-//          for ($j = 0; $j < $cW; $j++) {
-//                print_r( $w[$j]); 
-          }
-//         }
-//         print_r($v);
-       
-             
-              
-                 
-                
-//                echo $Dslect;
-//                 if(empty($t)){
-//                     echo $t."</br>";
-////                     echo $Dslect."</br>";
-//                     echo "tttt";
-////                     
-//                 }else{
-//                     echo "ree</br>";
-//                 }
-//                }
-             
-//        } 
-     
-//               foreach ($w as $D_res) {
-//                   if($D_res==$Dsele){
-//                        print_r($Dsele[$i]);
-//                   }else{
-//                       print_r($Dsele[$i]);
-//                   }
-//                  
-//                   
-//                   
-//               }
-//               
-//                   }
-//            if( $Dsele[$i]==$w[$j]   ){
-//                print_r($Dsele[$i]);
-//                print_r($w[$j]);
-                ?>                          
-<!--                        <script type="text/javascript">
-                            alert("ร้านที่เลือกมีอยูแล้ว");
-                        </script>-->
-                        
-                        <?php
-//                        $DataF = array('recom' => $this->recom->_showrecom());
-//                        $this->load->view('show_recom',$DataF);
-//                        $this->load->view('template/footer');
-//            }else if ($Dsele[$i]!=$w[$j]   ){
-//                print_r($Dsele[$i]);
-//                 echo "ไม่มี";
-//                        $this->recom->_addrecom($data);
-//                        redirect('index.php/usersingin');
-//                        $this->load->view('template/footer');
-//            }
-//            echo "not loop";
-//           }
-//           echo "</br>";
-//          
-//           echo "</br>";
-//            for ($p = 1; $p < $cids; $p++) {
-//                foreach ($ids as $id) {
-//                    if ($Dsele[$i] == $w) {
-                        ?>                          
-<!--                        <script type="text/javascript">
-                            alert("ร้านที่เลือกมีอยูแล้ว");
-                        </script>-->
-                        <?php
-//                       echo "มี";
-                        //echo 'ร้านที่เลือกมีอยูแล้ว';
-//                        redirect('index.php/formres_controller/show_recom');
-//                           echo json_encode($Dseles),'$Dseles';
-//                           echo '$id[res_id]->>',$id['res_id'];
-//                        $data = array('recom' => $this->recom->_showrecom());
-//                        $this->load->view('show_recom');
-//                        $this->load->view('template/footer');
-                   // } 
-                    //else {
-                     //   echo "ไม่มี";
-//                        $this->recom->_addrecom($data);
-//                        redirect('index.php/usersingin');
-//                        $this->load->view('template/footer');
-                    //}
-                //}
-            //}
-//        }
+        for ($i = 0; $i < sizeof($Dsele); $i++) {
+            $id = $Dsele[$i];
+            $result = $this->recom->searchrescombyid($id);
+            if (sizeof($result) == 0) {
+                $data = array(
+                    'recom_id' => '',
+                    'res_id' => $id);
+                $this->recom->_addrecom($data);
+            }
+        }
+        redirect('index.php/usersingin');
+        $this->load->view('template/footer');
     }
 
     public function showrecom() {
@@ -320,6 +227,7 @@ class Formres_controller extends CI_Controller {
         $data = array(
             'recom' => $this->recom->_showrecom()
         );
+//        print_r($data);
         $this->load->view('show_recom', $data);
         $this->load->view('template/footer');
     }

@@ -49,6 +49,8 @@
             <!-- Slide Show -->
 
             <!-- News Topic -->
+            <?php
+            ?>
             <div class="row">
                 <div class="col-xs-12 font-super">
                     <div class="col-xs-9">
@@ -66,6 +68,7 @@
                 <?php
 
                 foreach ($recom as $row) {
+                    
                     ?> 
 
                     <div class="col-sm-6">                            
@@ -79,7 +82,11 @@
                                                 <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name']; ?>" alt="<?php echo $row['res_name']; ?>" src="<?php echo base_url(); ?>img_res/<?php echo $row['imgres_name']; ?>">
                                             </i>
                                         <?php                                   
-                                        }
+                                        }  else {?>
+                                            <i title="<?php echo $row['res_name']; ?>" style="background-image: url(<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg)">
+                                                <img width="250px" height="200px" class="img-rounded" title="<?php echo $row['res_name']; ?>" alt="<?php echo $row['res_name']; ?>" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg">
+                                            </i>
+                                       <?php }
                                     ?>  
                                 </a>
                             </div>
@@ -134,7 +141,6 @@
                 <?php
                 if (count($resAll)) {
                     foreach ($resAll as $row) {
-//                        print_r($row);
                         ?>
                         <div class="media col-xs-12" id="resshow">
                             <div class="media-left media-top" >
