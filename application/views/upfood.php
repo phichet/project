@@ -16,11 +16,6 @@
                             <td></td>
                             <td>
                                 <?php
-//            echo "<select name='Restaurant' id='Restaurant' disabled='disabled'
-//                data-msg-required='กรุณาเลือก'
-//                data-rule-required='true'
-//            >";          
-//            echo "<option value=''  selected></option>";
                                 if (count($up)) {
                                     foreach ($up as $ups) {
                                         if ($ups['food_id'] == $id)
@@ -36,24 +31,9 @@
 
                         <input type="hidden" name="id"  value="<?php echo$ups['food_id']; ?>" hidden=""/>
                         <P> <b>ชื่ออาหาร</b> <input class="form-control" type="text" name="Food"  value="<?php echo$ups['food_name']; ?>" /> </p>
-                        <tr>
-                            <td><label>ประเภทอาหาร</label></td>
-                            <td>
-                                <?php
-                                echo "<select class='form-control input-sm ' name='Category' id='Category' 
-                data-msg-required='กรุณาเลือก'
-                data-rule-required='true'>";
-                                echo "<option value='' selected>" . $ups['cate_name'] . "</option>";
-                                if (count($cateid)) {
-                                    foreach ($cateid as $cateids) {
-
-                                        echo"<option value='" . $cateids['cate_id'] . "'>" . $cateids['cate_name'] . "</option>";
-                                    }
-                                }
-                                echo "</select>"
-                                ?> 
-                            </td>
-                        </tr>
+                        
+                        <input  type="hidden" name="cate_id" value="<?php echo $ups['cate_id']; ?>"/> 
+                        <P><label>ประเภทอาหาร</label> <input class="form-control" type="text" value="<?php echo$ups['cate_name']; ?>" readonly /></p>
                     </div>
                 </div></br>
                 <div class="col-md-6">

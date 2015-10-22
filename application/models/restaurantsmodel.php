@@ -13,8 +13,10 @@ class Restaurantsmodel extends CI_Model {
 
     function showAll() {
         $data = array();
-        $query = $this->db->from('restaurants')
+        $query = $this->db->select('restaurants.res_id,restaurants.res_name,restaurants.address,restaurants.phone,img_res.imgres_id,img_res.imgres_name')
+                ->from('restaurants')
                 ->join('img_res', 'img_res.res_id = restaurants.res_id', 'left')
+//                ->where('restaurants.res_id')
                 ->group_by('restaurants.res_id')
                 ->get();
         if ($query->num_rows() > 0) {
@@ -96,6 +98,21 @@ class Restaurantsmodel extends CI_Model {
         $data = array();
         $query = $this->db->where('res_id', $id)
                           ->get('img_res');
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array()as $row) {
+                $data[] = $row;
+            }
+        }
+        $query->free_result();
+        return $data;
+    }
+    function _addcomment($data) {
+        $this->db->insert('comments', $data);
+        
+    }
+    function _showcomment() {
+        $data = array();
+        $query = $this->db->get('comments');
         if ($query->num_rows() > 0) {
             foreach ($query->result_array()as $row) {
                 $data[] = $row;

@@ -50,4 +50,5 @@
 <script src="<?php echo base_url(); ?>front_page/js/lg-hash.js"></script>
 <script src="<?php echo base_url(); ?>front_page/js/lg-pager.js"></script>
 <script src="<?php echo base_url(); ?>front_page/lib/jquery.mousewheel.min.js"></script>
+<script src="<?php echo base_url(); ?>front_page/js/jquery.uploadfile.min.js"></script>
 

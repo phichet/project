@@ -58,7 +58,7 @@ class Recommend extends CI_Model {
         return $data;
     }
 
-    function delrecom($data) {
+    function _delrecom($data) {
         $this->db->where('recom_id', $data)
                 ->delete('res_recommend');
     }

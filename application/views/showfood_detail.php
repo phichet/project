@@ -5,7 +5,7 @@
             <div class="col-xs-12 moblie-mode">
                 <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                 <span class="glyphicon-class"><h3>รายละเอียดอาหาร</h3></span> 
-
+                    
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-12">
@@ -22,13 +22,12 @@
                                                 foreach ($foodAll as $food_list) {
                                                     if ($food_list['food_id'] == $id) {
                                                         $food = $food_list;
-                                                    }
-                                                }
+//                                                        print_r($food);
                                                 ?>
                                                 <tr>
                                                     <td class="col-sm-5" valign="top"> 
                                                         <?php
-                                                        if ($food['food_id'] == $id) {
+//                                                        if ($food['food_id'] == $id) {
                                                             echo "<b>ชื่อร้าน</b>" . " : " . $food['res_name'];
                                                             ?> </br>
                                                             <?php echo "<b>ที่อยู่</b>" . " : " . $food['address']; ?></br>
@@ -44,14 +43,18 @@
                                                         </td>
                                                     </tr>
                                          <?php
-                                                }
+//                                                }
                                                 ?>            
                                                 <tr>
                                                     <td class="col-sm-3"> 
                                                         <?php echo "<b>ชื่ออาหาร</b>" . " : " . $food['food_name']; ?> </br>
                                                         <?php echo "<b>ประเภทอาหาร</b>" . " : " . $food['cate_name']; ?> </br>
                                                         <?php echo "<p class='wording'><b>รายละเอียด</b>" . " : " . $food['detail']."</p>";?> 
-                                                    <?php } ?> 
+                                                        <?php echo "<a class='glyphicon glyphicon-pencil btn btn-warning' role='button' href='" . base_url() . "index.php/food_controller/getfood/" . $food['food_id'] . "'>แก้ไข<br></a> "; ?>
+                                                    <?php } 
+                                                     }
+                                                }
+                                                    ?> 
                                                 </td>
                                             </tr> 
                                         </tbody>   

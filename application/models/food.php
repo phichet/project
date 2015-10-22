@@ -34,7 +34,7 @@ class Food extends CI_Model {
                 ->join('restaurants', 'restaurants.res_id = food.res_id')
                 ->join('photo', 'photo.food_id = food.food_id')
                 ->join('category', 'category.cate_id = food.cate_id')
-                ->group_by('food.res_id',$id)
+                ->group_by('food.food_id',$id)
                 ->get();
         if ($query->num_rows() > 0) {
             foreach ($query->result_array()as $row) {
@@ -47,7 +47,10 @@ class Food extends CI_Model {
 
     function _showdetil() {
         $data = array();
-        $query = $this->db->from('food', COUNT('food_id'))
+        $query = $this->db->select('food.food_id,food.food_name,food.res_id,food.detail,food.cate_id,
+                restaurants.res_id,restaurants.res_name,restaurants.address,restaurants.phone,restaurants.price,restaurants.parking,
+                category.cate_id,category.cate_name,photo.food_id,photo.photo_name')
+                ->from('food', COUNT('food_id'))
                 ->join('restaurants', 'restaurants.res_id = food.res_id')
                 ->join('photo', 'photo.food_id = food.food_id')
                 ->join('category', 'category.cate_id = food.cate_id')

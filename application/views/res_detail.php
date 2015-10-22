@@ -89,20 +89,22 @@
                                 <label>รายละเอียด</label></br>
                                 <p class="wording"><?php echo $row['detail']; ?></p>
                             </div>
+
+
+                            <div class="row">
+                                <div class="col-xs-12"></br>
+                                    <div class="col-xs-8">
+                                        <?php echo "<a class='glyphicon glyphicon-pencil btn btn-warning' role='button' href='" . base_url() . "index.phbtn-xsp/formres_controller/get_update/" . $row['res_id'] . "'>แก้ไข<br></a> "; ?>   
+                                    </div>
+                                    <div class="col-xs-3offset-3">
+                                        <a class="btn btn-success" href='<?php echo base_url(); ?>index.php/food_controller/get_addfood/<?php echo $idres ?>'>เพิ่มอาหาร</a>
+                                    </div>
+                                </div>
+                            </div>
                             <?php
                         }
                         ?>
-
-                        <div class="row">
-                            <div class="col-xs-12"></br>
-                                <div class="col-xs-8">
-                                    <?php echo "<a class='glyphicon glyphicon-pencil btn btn-warning' role='button' href='" . base_url() . "index.php/formres_controller/get_update/" . $row['res_id'] . "'>แก้ไข<br></a> "; ?>   
-                                </div>
-                                <div class="col-xs-3offset-3">
-                                    <a class="btn btn-success" href='<?php echo base_url(); ?>index.php/food_controller/get_addfood/<?php echo $idres ?>'>เพิ่มอาหาร</a>
-                                </div>
-                            </div>
-                        </div></br> 
+                        </br> 
                         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGB6CfHD2BcKTi0Uc31nsAm6xQ4Z7s3uQ"></script>                   
                         <script type="text/javascript">
                         var Lat = document.getElementById('latbox').value;
@@ -142,14 +144,17 @@
                 <?php
                 if (count($resid)) {
                     foreach ($resid as $resids) {
+//                        print_r($resids);
+//                        echo "</br>";
+//                        print_r($idres);
                         if ($resids['res_id'] == $idres) {
                             ?>
                             <div class="row">
                                 <div class="col-sm-6 media-margin">
                                     <div class="media">
                                         <div class="media-body">
-                                            <a class="font-review" href="news/p12.php"><b><?php echo"<a href='" . base_url() . "index.php/food_controller/showdetail/" . $resids['food_id'] . "'>" . $resids['food_name']; ?></b></a><br>
-                                            <?php echo $resids['address']; ?> &nbsp; <?php echo $resids['phone']; ?>              
+                                            <a class="font-review" href="news/p12.php"><b><?php echo" " . "<a href='" . base_url() . "index.php/food_controller/showdetail/" . $resids['food_id'] . "'>" . $resids['food_name']; ?></b></a></br>
+                                            <?php echo "<a class='btn btn-danger btn-xs col-lg-offset-10 ' role='button' href='" . base_url() . "index.php/food_controller/delfood/" . $resids['food_id'] . "' >ลบ<br></a>"?>              
                                         </div>
                                     </div>
                                 </div> <!-- / col-sm-6 --> 
@@ -159,17 +164,11 @@
                     }
                 };
                 ?>
-                <div id="fb-root"></div>
-                <script>(function (d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id))
-                            return;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.4&appId=1513679228861356";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));</script>
-                <div class="col-lg-12">
-                    <div class="fb-comments" data-href="" data-numposts="3"></div>
-                </div>
-                <br>
+                </br></br>
+               <?php
+               echo $comment;
+               ?>
+            
+              
+           
+              

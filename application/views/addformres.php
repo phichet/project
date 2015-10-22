@@ -43,7 +43,7 @@
                                 <input type="hidden" name="lng" id="lngbox" value=""/>                                     
                                 <P class="col-lg-7 col-xs-12"><b> ที่อยู่ </b><input class="form-control" type="text" name="address"  value=""/> </p>                       
                                 <P class="col-lg-4 col-xs-12"><b> เบอร์โทร </b><input class="form-control" type="text" name="phone"  value=""/> </p>                        
-                                <P class="col-lg-3 col-xs-12"><b> ราคา </b><input class="form-control" type="text" name="price"  value=""/> </p>
+                                <P class="col-lg-3 col-xs-12"><b> ราคา </b><input class="form-control" type="text" name="price"  value="" placeholder="xx - xxx บาท"/> </p>
                                 <div class="col-lg-12 col-xs-12"> 
                                     <div class="col-lg-2 col-xs-6">
                                         <b> ที่จอดรถ : </b>

@@ -40,6 +40,7 @@ class Food_controller extends CI_Controller {
 
     public function addfood() {
         $this->load->view('template/header');
+        $id = $this->input->post('idseg');
 
         $data = array(
             'food_id' => '',
@@ -93,9 +94,8 @@ class Food_controller extends CI_Controller {
                 $this->food->_upload($data2);
             }
         }
-
         $this->load->view('template/footer');
-        redirect('index.php/food_controller/showfood');
+        redirect("index.php/formres_controller/resdetail/$id");
     }
 
     public function showres() {
@@ -139,9 +139,10 @@ class Food_controller extends CI_Controller {
         $id = $this->uri->segment(3);
         $data = array(
             'id' => $id,
-            'cateid' => $this->food->_showcate(),
+//            'cateid' => $this->food->_showcate(),
             'up' => $this->food->_getfood($id)
         );
+        print_r($data);
         $this->load->view('upfood', $data);
         $this->load->view('template/footer');
     }
@@ -154,20 +155,22 @@ class Food_controller extends CI_Controller {
             'food_name' => $this->input->post('Food'),
             'detail' => $this->input->post('Detail'),
             'res_id' => $this->input->post('Restaurant'),
-            'user_id' => $this->input->post('user_id'),
+            'user_id' => null,
+//            'user_id' => $this->input->post('user_id'),
             'cate_id' => $this->input->post('cate_id'),
+            
         );
-        $this->load->model('food');
+        print_r($data);
         $this->food->upfood($data);
         $this->load->view('template/footer');
-        redirect('index.php/food_controller/showfood');
+        redirect('index.php/formres_controller/showAllres');
     }
 
     function delfood() {
         $this->load->model('food', 'Del');
         $data = $this->uri->segment(3);
         $this->Del->delID($data);
-        redirect('index.php/food_controller/showfood');
+        redirect('index.php/usersingin');
     }
 
 }

@@ -12,6 +12,7 @@
         <link href="<?php echo base_url(); ?>front_page/css/animate.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>front_page/css/main.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>front_page/css/bootstrap-social.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>front_page/css/uploadfile.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url(); ?>front_page/css/lightgallery.css" rel="stylesheet">
 
 
@@ -19,7 +20,7 @@
             <script src="js/html5shiv.js"></script>
             <script src="js/respond.min.js"></script>
             <![endif]       -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>front_page/images/ico/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>front_page/images/ico/HereUTT.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url(); ?>front_page/images/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url(); ?>front_page/images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url(); ?>front_page/images/ico/apple-touch-icon-72-precomposed.png">

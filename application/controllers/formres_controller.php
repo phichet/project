@@ -131,6 +131,7 @@ class Formres_controller extends CI_Controller {
             'resid' => $this->food->_foodbyid($id),
             'imgres' => $this->Rest->_showimgres($id),
             'idres' => $id,
+            'comment'=>$this->load->view('comment_view'),
         ];
 //        print_r($data);
         $this->load->view('res_detail', $data);
@@ -235,10 +236,55 @@ class Formres_controller extends CI_Controller {
     public function delrecom() {
         $this->load->view('template/header');
         $data = $this->uri->segment(3);
-        $this->recom->delrecom($data);
+        $this->recom->_delrecom($data);
         $this->load->view('template/footer');
         redirect('index.php/formres_controller/show_recom');
     }
 
+    public function addcomment() {
+        echo "test";
+//        $id = $this->uri->segment(3);
+//        $data2= array(
+//            'id' 
+//        );
+//        extract($_POST);
+//        print_r($_POST);
+//        $data = array(
+//        'com_id' => '',
+//        'user_id' => $id_post,   
+//        'comment' => $comment = htmlentities($comment)
+//        
+//        );
+////        if ($_POST['act'] == 'add-com'):
+////            $name = htmlentities($name);
+////            $email = htmlentities($email);
+////            $comment = htmlentities($comment);
+////            // Get gravatar Image 
+////            // https://fr.gravatar.com/site/implement/images/php/
+////            $default = "mm";
+////            $size = 35;
+////            $grav_url = "http://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?d=" . $default . "&s=" . $size;
+////
+////            if (!mysql_errno()) {
+////        $this->load->view('add-comment');
+//        $this->Rest->_addcomment($data);
+//            }
+//        endif;
+    }
+
+    public function showcom() {
+//        $this->load->view('template/header');
+        $id = $this->uri->segment(3);
+        $data = array(
+            'affcom' => $this->Rest->_showcomment(),
+                'id' =>$id
+        );
+
+        $this->load->view('comment_view', $data);
+//        $this->load->view('template/footer');
+    }
+//    public function 
+
 }
+
 ?>       

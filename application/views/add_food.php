@@ -99,6 +99,8 @@
                                 <input type="button" class="btn btn-warning" value="เพิ่มรูป..." id="Clone" />
                             </div>
                             <div class="col-xs-3 col-xs-offset-3">
+                                <input type="hidden" value="<?php echo $idseg; ?>" name="idseg">
+                               
                                 <input type="submit" name="Post" class="btn btn-success"/>
                             </div>
                         </div>
