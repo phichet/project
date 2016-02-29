@@ -6,28 +6,54 @@
                 <!--<a href="index.php">�????�??�??</a> --&gt; <a href="food.php">??������??�??�����/�??��??�??��??�</a> --&gt; ����õ����????          </div>-->
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 <span class="glyphicon-class"><h3>ข้อมูลส่วนตัว</h3></span>
-                <form role="form" action="" method="POST">     
+                <form role="form" action="index.php/usersingin/showuser" method="">  
+                    <?php
+                    print_r($username);
+                    if ($this->session->userdata('username') != '') {
+                        echo $this->session->userdata('username');
+                        $this->session->unset_userdata('username');
+                    }
+                    ?>
                     <div class="row">
                         <div class="col-xs-12 font-super">
                             <div class="col-xs-3">
-                                <?php $profile_pic = "http://graph.facebook.com/" . $userdata['id'] . "/picture?type=large ";
-                                echo "<img class='img-thumbnail' src=\"" . $profile_pic . "\" /><br/>";
+                                <?php // echo form_open(""); ?>
+
+                                <?php //print_r($user);
+                                ?>
+                                <?php // echo form_close(); ?>
+
+
+                                <?php
+//                                $profile_pic = "http://graph.facebook.com/" . $userdata['id'] . "/picture?type=large ";
+//                                echo "<img class='img-thumbnail' src=\"" . $profile_pic . "\" /><br/>";
+//                                echo "wetrtghryuioiouiiiiiiiiiiiii";
+//                                echo $user;
                                 ?>
                             </div>
                             <div class = "col-xs-9 col-xs-offset  txt-right extra-margin-top">
-                             
-                                <!-- <p>ID : <?php echo $userdata['id'] ;?></p> -->
-                                <p>ชื่อ : <?php echo$userdata['name']; ?></p>
-                                <p>ชื่อจริง : <?php echo$userdata['first_name']; ?></p>
-                                <p>สกุล : <?php echo$userdata['last_name']; ?></p>
-                               
-                               <p><?php if (!key_exists('email', $userdata)) {
+                                <?php
+                                foreach ($user as $data) {
+
+//                                    print_r($data);
+                                    ?>
+                                    <!-- <p>ID : <?php // echo $userdata['id']; ?></p> -->
+                                    <p>ชื่อ : <?php echo$data['name']; ?></p>
+                                    <p>ชื่อจริง : <?php echo$data['first_name']; ?></p>
+                                    <p>สกุล : <?php echo$data['last_name']; ?></p>
+
+                                    <p><?php
+                                if (!key_exists('email', $data)) {
                                     echo "อีเมล" . " : ", "";
                                 } else {
-                                    echo "อีเมล" . " : " . $userdata['email'], "";
-                                }?></p>
-                                <p>เพศ : <?php echo$userdata['gender']; ?></p>
-                                <p>ที่อยู่ : <?php echo$userdata['locale']; ?></p>
+                                    echo "อีเมล" . " : " . $data['email'], "";
+                                }
+                                    ?></p>
+                                    <p>เพศ : <?php echo$data['gender']; ?></p>
+                                    <p>ที่อยู่ : <?php echo$data['address']; ?></p>
+    <?php
+}
+?>
                             </div>
                         </div>
                         <div class = "col-xs-12">

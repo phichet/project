@@ -38,7 +38,7 @@
                         <div class="col-sm-4 col-sm-offset-7 col-xs-3 col-xs-offset-7 ">
                             <div class="social">
                                 <!--                                <ul class="social-share">
-                                                                    <li><a href="<?php // echo base_url('index.php/usersingin/home');   ?>"><i class="fa fa-facebook"></i></a></li>
+                                                                    <li><a href="<?php // echo base_url('index.php/usersingin/home');       ?>"><i class="fa fa-facebook"></i></a></li>
                                                                     <li><a href="<?php echo base_url(); ?>index.php/usersingin/home"><i class="btn-sm btn-info" style="width: 100%">login</i></a></li> 
                                                                     <li></li>
                                                                     <li></li>
@@ -47,8 +47,21 @@
                                                                 </ul>-->
                                 <div>
 
-                                    <a href="<?php echo base_url(); ?>index.php/usersingin/home">
-                                        <i class="btn btn-google-plus fa" >เข้าสู่ระบบ</i></a>
+                                    <?php
+
+                                    if ($this->session->userdata('username') != '') {
+                                        echo "คุณ " . $this->session->userdata('user');
+                                       
+                                        ?>
+                                        <a href="<?php echo base_url(); ?>index.php/usersingin/logout">
+                                            <i class="btn btn-sm-google-plus fa" >ออกจากระบบ</i></a>
+                                    <?php } else { ?>
+                                        <a href="<?php echo base_url(); ?>index.php/usersingin/home">
+                                            <i class="btn btn-sm-google-plus fa" >เข้าสู่ระบบ</i></a>
+
+
+                                    <?php } ?>
+
 
                                 </div>
                                 <!--                                <div class="search">
@@ -73,7 +86,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand"  href="<?php echo base_url(); ?>index.php/usersingin">
-                            <!--<img class="img-responsive" src="<?php // echo base_url();   ?>front_page/images/logo.png" alt="logo" >-->
+                            <!--<img class="img-responsive" src="<?php // echo base_url();       ?>front_page/images/logo.png" alt="logo" >-->
                             <div class="logo-xs visible-xs"></div>
                             <div class="logo-sm visible-sm"></div>
                             <div class="logo-md visible-md"></div>

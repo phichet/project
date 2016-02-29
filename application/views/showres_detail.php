@@ -43,7 +43,8 @@
                                             <?php echo "<b>Pone</b>" ." : " .$row['phone'] ;?>
                                        </td>
                                        <td class="col-lg-5"> 
-                                             <?php echo "<b>Price</b>" ." : " .$row['price'];?></br>
+                                             <?php echo "<b>Price</b>" ." : " .$row['pricemin'];?></br>
+                                             <?php echo "<b>Price</b>" ." : " .$row['pricemax'];?></br>
                                              <?php  if(!key_exists('parking',$row)==0){
                                             echo "<b>Parking</b>" ." : "."Yes","<br/>";
                                                     }

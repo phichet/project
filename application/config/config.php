@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'REALLY_LONG_NUMBER';
+$config['encryption_key'] = 'qwer1234';
 
 /*
 |--------------------------------------------------------------------------
@@ -358,7 +358,7 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 $config['facebook']['api_id'] = '1513679228861356';
 $config['facebook']['app_secret'] = '59a0d1eb7918b1505a71312b4bcc1e9d';
-$config['facebook']['redirect_url'] = 'http://localhost/webci/index.php/welcome/Diseplay';
+$config['facebook']['redirect_url'] = 'http://localhost/webci/index.php/usersingin/showuser_facebook';
 $config['facebook']['permissions'] = array('public_profile','email');
 /* End of file config.php */
 /* Location: ./application/config/config.php */

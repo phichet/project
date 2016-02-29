@@ -57,7 +57,8 @@ class Formres_controller extends CI_Controller {
             'lng' => $Dlng,
             'address' => $this->input->post('address'),
             'phone' => $this->input->post('phone'),
-            'price' => $this->input->post('price'),
+            'pricemin' => $this->input->post('pricemin'),
+            'pricemax' => $this->input->post('pricemax'),
             'parking' => $this->input->post('parking'),
             'detail' => $this->input->post('Detail')
         );
@@ -131,7 +132,7 @@ class Formres_controller extends CI_Controller {
             'resid' => $this->food->_foodbyid($id),
             'imgres' => $this->Rest->_showimgres($id),
             'idres' => $id,
-            'comment'=>$this->load->view('comment_view'),
+//            'comment'=>$this->load->view('comment_view'),
         ];
 //        print_r($data);
         $this->load->view('res_detail', $data);
@@ -159,7 +160,8 @@ class Formres_controller extends CI_Controller {
             'lng' => $this->input->post('lng'),
             'address' => $this->input->post('address'),
             'phone' => $this->input->post('phone'),
-            'price' => $this->input->post('price'),
+            'pricemin' => $this->input->post('pricemin'),
+            'pricemax' => $this->input->post('pricemax'),
             'parking' => $this->input->post('parking'),
             'detail' => $this->input->post('Detail')
         );

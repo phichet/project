@@ -30,7 +30,7 @@
                     <body onload="initialize()"><!--*********-->
                         <div class="row" align="center">
                             <div class="col-xs-12">
-                                <div class="img-thumbnail" float="none" id="map_canvas" align="center" style="width:400px;height:300px;" >
+                                <div class="img-thumbnail" float="none" id="map_canvas" align="center" style="width:600px;height:400px;" >
                                 </div></br>
                             </div>
                         </div>
@@ -43,7 +43,8 @@
                                 <input type="hidden" name="lng" id="lngbox" value=""/>                                     
                                 <P class="col-lg-7 col-xs-12"><b> ที่อยู่ </b><input class="form-control" type="text" name="address"  value=""/> </p>                       
                                 <P class="col-lg-4 col-xs-12"><b> เบอร์โทร </b><input class="form-control" type="text" name="phone"  value=""/> </p>                        
-                                <P class="col-lg-3 col-xs-12"><b> ราคา </b><input class="form-control" type="text" name="price"  value="" placeholder="xx - xxx บาท"/> </p>
+                                <P class="col-lg-3 col-xs-12"><b> ราคาเริ่มต้น </b><input class="form-control" type="text" name="pricemin"  value="" placeholder="xxx บาท"/> </p>
+                                <P class="col-lg-3 col-xs-12"><b>ถึง</b><input class="form-control" type="text" name="pricemax"  value="" placeholder="xxx บาท"/> </p>
                                 <div class="col-lg-12 col-xs-12"> 
                                     <div class="col-lg-2 col-xs-6">
                                         <b> ที่จอดรถ : </b>
@@ -76,7 +77,7 @@
                                                 </td>
                                                 <td >
                                                     <?php
-                                                    echo "<p> คำบรรยายรูป  </p><input align='' id='detail" . $id . "' class='form-control' name='detail_photores[]' value=''  rows='3' cols='5'/>";
+//                                                    echo "<p> คำบรรยายรูป  </p><input align='' id='detail" . $id . "' class='form-control' name='detail_photores[]' value=''  rows='3' cols='5'/>";
                                                     ?>
                                                 </td>         
                                             </tr>

@@ -3,23 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/webci/application/views/add_food.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/controllers/food_controller.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/config/autoload.php</file>
             <file>file:/C:/xampp/htdocs/webci/application/views/template/footer.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/_user.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/models/user.php</file>
             <file>file:/C:/xampp/htdocs/webci/application/controllers/usersingin.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/delete.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/showfood_detail.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/upload.php</file>
             <file>file:/C:/xampp/htdocs/webci/application/controllers/formres_controller.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/show_res.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/models/food.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/upfood.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/comment_view.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/res_detail.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/addformres.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/config/config.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/models/register.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/login_view.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/regis_facebook.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/usershow.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/index.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/models/user_model.php</file>
             <file>file:/C:/xampp/htdocs/webci/application/views/template/header.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/models/restaurantsmodel.php</file>
-            <file>file:/C:/xampp/htdocs/webci/application/views/show_food.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/addformres.php</file>
+            <file>file:/C:/xampp/htdocs/webci/application/views/registration_view.php</file>
         </group>
     </open-files>
 </project-private>

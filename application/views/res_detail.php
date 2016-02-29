@@ -8,15 +8,15 @@
                     if (count($resAll)) {
                         foreach ($resAll as $row) {
                             ?> 
-                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                            <span><h2><?php echo$row['res_name']; ?> </h2></span></br>
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"> </span>
+                    <span><h2><?php echo$row['res_name']; ?> </h2></span></br>
                             <?php
                         }
                     }
                     ?>
                     <div onload="initialize()">
                         <div class="row ">
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
                                 <div class="home">
                                     <div class="demo-gallery">
@@ -43,15 +43,20 @@
                                     </script>
 
                                 </div>
+                                
                             </div>
 
                             <?php
                             foreach ($resAll as $row) {
                                 ?> 
-                                <div class="col-sm-4 ">
-                                    <div class="img-rounded" float="none" id="map_canvas" align="center" style="width:100%;height:200px;" ></div></br>
+                                <div class="col-sm-5 ">
+                                    <div class="img-rounded" float="none" id="map_canvas" align="center" style="width:100%;height:260px;" ></div></br>
                                 </div>      
-                            </div> </br> 
+                            </div>
+                        
+                        <div class="col-xs-3offset-3">
+                                        <a class="btn-sm btn-instagram" href='<?php echo base_url(); ?>#<?php echo $idres ?>'>เพิ่มรูป</a>
+                                    </div> </br> 
                             <table class="table">
                                 <theder>     
                                 </theder>                                
@@ -67,7 +72,8 @@
                                                         <?php echo "<b>โทร</b>" . " : " . $row['phone']; ?>
                                                     </td>
                                                     <td class="col-xs-3"> 
-                                                        <?php echo "<b>ราคา</b>" . " : " . $row['price']; ?></br>
+                                                        <?php echo "<b>ราคาเริ่มต้น</b>" . " : " . $row['pricemin']; ?>
+                                                        <?php echo "<b>ถึง</b>" ." " .$row['pricemax']." "."บาท";?></br>
                                                         <?php
                                                         if (!key_exists('parking', $row) == 0) {
                                                             echo "<b>ที่จอดรถ</b>" . " : " . "มี";
@@ -93,11 +99,11 @@
 
                             <div class="row">
                                 <div class="col-xs-12"></br>
-                                    <div class="col-xs-8">
-                                        <?php echo "<a class='glyphicon glyphicon-pencil btn btn-warning' role='button' href='" . base_url() . "index.phbtn-xsp/formres_controller/get_update/" . $row['res_id'] . "'>แก้ไข<br></a> "; ?>   
+                                    <div class="col-xs-1">
+                                        <?php echo "<a class='glyphicon glyphicon-pencil btn btn-reddit' role='button' href='" . base_url() . "index.phbtn-xsp/formres_controller/get_update/" . $row['res_id'] . "'>แก้ไข<br></a> "; ?>   
                                     </div>
-                                    <div class="col-xs-3offset-3">
-                                        <a class="btn btn-success" href='<?php echo base_url(); ?>index.php/food_controller/get_addfood/<?php echo $idres ?>'>เพิ่มอาหาร</a>
+                                    <div class="col-xs-2">
+                                        <a class="glyphicon glyphicon-plus btn btn-link" href='<?php echo base_url(); ?>index.php/food_controller/get_addfood/<?php echo $idres ?>'>เพิ่มรายการอาหาร</a>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +172,7 @@
                 ?>
                 </br></br>
                <?php
-               echo $comment;
+//               echo $comment;
                ?>
             
               

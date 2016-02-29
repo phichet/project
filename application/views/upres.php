@@ -29,7 +29,8 @@
                             <!--****-->         <input class="form-control" type="hidden" name="lng"  id="lngbox" value="<?php echo $up['lng']; ?>" /> 
                             <P class="col-lg-7"><b> ที่อยู่ </b><input class="form-control" type="text" name="address"  value="<?php echo $up['address']; ?>" /> </p>
                             <P class="col-lg-4"> <b> เบอร์โทร </b> <input class="form-control" type="text" name="phone"  value="<?php echo $up['phone']; ?>" /> </p>
-                            <P class="col-lg-3"> <b> ราคา </b> <input class="form-control" type="text" name="price"  value="<?php echo $up['price']; ?>" /> </p>
+                            <P class="col-lg-3"> <b> ราคาเริ่มต้น </b> <input class="form-control" type="text" name="pricemin"  value="<?php echo $up['pricemin']; ?>" /> </p>
+                            <P class="col-lg-3"> <b> ถึง </b> <input class="form-control" type="text" name="pricemax"  value="<?php echo $up['pricemax']; ?>" /> </p>
                             <div class="col-lg-8"> 
                                 <b> ที่จอดรถ : </b> : <input type="radio" value="1" class="radio-inline" name="parking"<?php if ($up['parking'] == 1) echo "checked"; ?>> <b> มี </b>
                                 <input type="radio" value="0" class="radio-inline" name="parking"<?php if ($up['parking'] == 0) echo "checked"; ?>> <b> ไม่มี </b>

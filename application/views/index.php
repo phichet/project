@@ -2,6 +2,7 @@
 <div class="container" style="background-color:rgba(220,220,220,0.2)">
     <div class="row row-offcanvas row-offcanvas-right">
         <br>
+
         <div class="col-lg-9">
             <!-- Slide Show -->
             <!--            <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
@@ -205,8 +206,8 @@
                     <img width="50" height="50" src="<?php echo base_url(); ?>front_page/images/restaurants/no-img.jpg" class="img-rounded media-object">
                 </div>
                 <div class="media-body">
-                    <article><a class="font-review" href="review/p7.php"><b>[รีวิว] Ant-Man คนหรือมด !!</b></a></article>
-                    <article><p>หลังจากที่หนัง Ant Man ได้เข้าโรงเป็นที่เรียบร้อยแล้ว ทางที่นี่นครสวรรค์ก็ได้ไปดูมาก็อยากจะรีวิวหนังเรื่องนี้เหลือเกิน เลยทำโพสนี้ออกมาครับ </p></article>  
+                    <article><a class="font-review" href="#"><b>[รีวิว] xxxx xxx</b></a></article>
+                    <article><p>xxxxxxx xxxxxx </p></article>  
                 </div>
                 </br>
                 <div class="col-lg-12 col-lg-offset-0 col-sm-5 col-sm-offset-4">
